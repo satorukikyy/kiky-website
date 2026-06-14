@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #FAFAFA;
+    --foreground: #0A0A0A;
+  }
+
+  body {
+    @apply bg-brand-bg text-brand-text font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+
+  * {
+    @apply border-brand-text;
+  }
+}
+
+@layer utilities {
+  .neo-card {
+    @apply border-2 border-brand-text shadow-neo bg-white;
+  }
+
+  .neo-card-yellow {
+    @apply border-2 border-brand-text shadow-neo bg-brand-yellow;
+  }
+
+  .neo-btn-primary {
+    @apply border-2 border-brand-text shadow-neo bg-brand-red text-white font-heading font-bold px-6 py-3 transition-all duration-150 hover:shadow-neo-sm hover:translate-x-[2px] hover:translate-y-[2px] active:shadow-none active:translate-x-[4px] active:translate-y-[4px];
+  }
+
+  .neo-btn-secondary {
+    @apply border-2 border-brand-text shadow-neo bg-white text-brand-text font-heading font-bold px-6 py-3 transition-all duration-150 hover:shadow-neo-sm hover:translate-x-[2px] hover:translate-y-[2px] active:shadow-none active:translate-x-[4px] active:translate-y-[4px];
+  }
+}
