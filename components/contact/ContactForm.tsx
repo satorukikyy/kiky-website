@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from 'react'
 import Button from '@/components/ui/Button'
+import { personalInfo } from '@/lib/data'
 
 type ContactFormProps = {
   whatsappNumber: string
@@ -13,7 +14,7 @@ export default function ContactForm({ whatsappNumber }: ContactFormProps) {
   function handleSubmit(e: FormEvent) {
     e.preventDefault()
     const text = encodeURIComponent(
-      `Hello Kiky!\n\nName: ${form.name}\nEmail: ${form.email}\nSubject: ${form.subject}\n\nMessage:\n${form.message}`
+      `Hello ${personalInfo.nickname}!\n\nName: ${form.name}\nEmail: ${form.email}\nSubject: ${form.subject}\n\nMessage:\n${form.message}`
     )
     window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank')
   }

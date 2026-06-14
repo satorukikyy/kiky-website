@@ -11,10 +11,10 @@ export const metadata: Metadata = {
 
 const socialLinks = [
   { label: 'Email', value: personalInfo.email, href: `mailto:${personalInfo.email}`, color: 'brand-red' },
-  { label: 'LinkedIn', value: 'linkedin.com/in/onerrorkx', href: personalInfo.socials.linkedin, color: 'brand-blue' },
-  { label: 'GitHub', value: 'github.com/satorukikyy', href: personalInfo.socials.github, color: 'brand-text' },
-  { label: 'Instagram', value: '@kxs3c', href: personalInfo.socials.instagram, color: 'brand-purple' },
-  { label: 'X / Twitter', value: '@kxgapapa', href: personalInfo.socials.twitter, color: 'brand-text' },
+  { label: 'LinkedIn', value: personalInfo.socials.linkedin.replace('https://www.', '').replace('https://', ''), href: personalInfo.socials.linkedin, color: 'brand-blue' },
+  { label: 'GitHub', value: personalInfo.socials.github.replace('https://www.', '').replace('https://', ''), href: personalInfo.socials.github, color: 'brand-text' },
+  { label: 'Instagram', value: personalInfo.socials.instagram.replace('https://www.', '').replace('https://', ''), href: personalInfo.socials.instagram, color: 'brand-purple' },
+  { label: 'X / Twitter', value: personalInfo.socials.twitter.replace('https://www.', '').replace('https://', ''), href: personalInfo.socials.twitter, color: 'brand-text' },
   { label: 'WhatsApp', value: personalInfo.whatsapp, href: `https://wa.me/${personalInfo.whatsappNumber}`, color: 'brand-green' },
 ]
 
