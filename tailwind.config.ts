@@ -8,31 +8,30 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'brand-red': '#E63946',
-        'brand-yellow': '#FFD166',
-        'brand-blue': '#118AB2',
-        'brand-green': '#06D6A0',
-        'brand-purple': '#7B2D8B',
-        'brand-bg': '#FAFAFA',
-        'brand-text': '#0A0A0A',
+        'brand-bg':           '#F7FAF7',
+        'brand-soft':         '#F0F7F1',
+        'brand-green':        '#00A845',
+        'brand-green-dark':   '#007A32',
+        'brand-green-light':  '#EBF7EE',
+        'brand-green-border': '#C3E6CC',
+        'brand-text':         '#0A0A0A',
+        'brand-muted':        '#6B7280',
+        'brand-subtle':       '#9CA3AF',
+        'brand-border':       '#E4EDE5',
+        'brand-border-soft':  '#DDE9DE',
       },
       fontFamily: {
         heading: ['var(--font-space-grotesk)', 'sans-serif'],
-        body: ['var(--font-inter)', 'sans-serif'],
-      },
-      boxShadow: {
-        'neo': '4px 4px 0px #0A0A0A',
-        'neo-sm': '2px 2px 0px #0A0A0A',
-        'neo-lg': '6px 6px 0px #0A0A0A',
+        body:    ['var(--font-inter)', 'sans-serif'],
       },
       keyframes: {
         marquee: {
-          '0%': { transform: 'translateX(0%)' },
+          '0%':   { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-50%)' },
         },
       },
       animation: {
-        marquee: 'marquee 20s linear infinite',
+        marquee: 'marquee 25s linear infinite',
       },
     },
   },

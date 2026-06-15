@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: #FAFAFA;
+    --background: #F7FAF7;
     --foreground: #0A0A0A;
   }
 
@@ -15,26 +15,13 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
   }
-
-  * {
-    @apply border-brand-text;
-  }
 }
 
 @layer utilities {
-  .neo-card {
-    @apply border-2 border-brand-text shadow-neo bg-white;
+  .section-tag {
+    @apply text-[10px] text-brand-green tracking-[3px] uppercase font-bold font-heading;
   }
-
-  .neo-card-yellow {
-    @apply border-2 border-brand-text shadow-neo bg-brand-yellow;
-  }
-
-  .neo-btn-primary {
-    @apply border-2 border-brand-text shadow-neo bg-brand-red text-white font-heading font-bold px-6 py-3 transition-all duration-150 hover:shadow-neo-sm hover:translate-x-[2px] hover:translate-y-[2px] active:shadow-none active:translate-x-[4px] active:translate-y-[4px];
-  }
-
-  .neo-btn-secondary {
-    @apply border-2 border-brand-text shadow-neo bg-white text-brand-text font-heading font-bold px-6 py-3 transition-all duration-150 hover:shadow-neo-sm hover:translate-x-[2px] hover:translate-y-[2px] active:shadow-none active:translate-x-[4px] active:translate-y-[4px];
+  .section-title {
+    @apply text-2xl font-heading font-black text-brand-text tracking-tight;
   }
 }
