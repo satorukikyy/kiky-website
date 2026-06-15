@@ -1,58 +1,81 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Button from '@/components/ui/Button'
+import Link from 'next/link'
 import { personalInfo } from '@/lib/data'
+
+const stats = [
+  { num: '2+',  label: 'Years Experience', green: true },
+  { num: '10+', label: 'Engagements',      green: false },
+  { num: 'ISO', label: 'Lead Auditor',     green: false },
+  { num: 'VAPT',label: 'Web & Mobile',     green: false },
+]
 
 export default function HeroSection() {
   return (
-    <section className="min-h-screen flex items-center pt-16 px-6">
-      <div className="max-w-6xl mx-auto w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center py-20">
-          {/* Text side */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="inline-block border-2 border-brand-text bg-brand-yellow px-4 py-1 mb-6 font-heading font-bold text-sm uppercase tracking-widest">
-              Available for Work
-            </div>
-            <h1 className="text-5xl md:text-7xl font-heading font-bold leading-tight mb-4">
-              Hi, I&apos;m{' '}
-              <span className="text-brand-red">{personalInfo.nickname}</span>
-            </h1>
-            <p className="text-xl md:text-2xl font-heading font-bold text-gray-600 mb-6">
-              {personalInfo.title}
-            </p>
-            <p className="text-base font-body text-gray-600 mb-8 max-w-md leading-relaxed">
-              {personalInfo.shortBio}
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button variant="primary" href="/projects">View My Work</Button>
-              <Button variant="secondary" href="/contact">Contact Me</Button>
-            </div>
-          </motion.div>
-
-          {/* Photo side */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex justify-center"
-          >
-            <div className="relative w-72 h-80 border-2 border-brand-text shadow-neo-lg bg-brand-yellow">
-              {/* Replace with actual avatar image when provided */}
-              <div className="w-full h-full flex items-center justify-center bg-brand-yellow">
-                <span className="text-6xl">👨‍💻</span>
-              </div>
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-8 h-8 bg-brand-red border-2 border-brand-text" />
-              <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-brand-blue border-2 border-brand-text" />
-            </div>
-          </motion.div>
+    <section className="pt-[90px] pb-14 px-5 max-w-[1120px] mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.55 }}
+      >
+        {/* Available pill */}
+        <div className="inline-flex items-center gap-2 border border-brand-green-border bg-brand-green-light text-brand-green-dark text-[11px] font-heading font-bold tracking-[1.5px] uppercase px-4 py-1.5 rounded-full mb-8">
+          <span className="w-1.5 h-1.5 rounded-full bg-brand-green" />
+          Available for Work
         </div>
-      </div>
+
+        {/* Headline */}
+        <h1 className="text-[clamp(52px,6.5vw,78px)] font-heading font-black leading-[1.0] tracking-[-3px] mb-5">
+          {personalInfo.title.split('&')[0].trim()}<br />
+          &amp; Security<br />
+          <span className="text-brand-green">Researcher.</span>
+        </h1>
+
+        {/* Sub */}
+        <p className="text-brand-muted text-base leading-[1.75] max-w-[480px] mb-9">
+          {personalInfo.name} — ISO 27001/27701 Lead Auditor &amp; Web/Mobile Pentester at{' '}
+          <span className="text-brand-text font-medium">{personalInfo.company}</span>.
+          Securing businesses across Indonesia.
+        </p>
+
+        {/* CTAs */}
+        <div className="flex flex-wrap gap-3 mb-12">
+          <Link
+            href="/projects"
+            className="bg-brand-green text-white font-heading font-bold text-sm px-7 py-3 rounded-[10px] hover:opacity-90 transition-opacity"
+          >
+            View Projects →
+          </Link>
+          <Link
+            href="/contact"
+            className="bg-white border border-brand-border text-brand-text font-heading font-semibold text-sm px-7 py-3 rounded-[10px] hover:bg-brand-soft transition-colors"
+          >
+            Get In Touch
+          </Link>
+        </div>
+
+        {/* Stat cards */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5">
+          {stats.map((s) => (
+            <div
+              key={s.num}
+              className={`rounded-[14px] px-5 py-5 border ${
+                s.green
+                  ? 'bg-brand-green border-brand-green'
+                  : 'bg-white border-brand-border'
+              }`}
+            >
+              <p className={`text-[28px] font-heading font-black tracking-tight ${s.green ? 'text-white' : 'text-brand-text'}`}>
+                {s.num}
+              </p>
+              <p className={`text-[10px] font-body font-semibold uppercase tracking-[1px] mt-0.5 ${s.green ? 'text-white/70' : 'text-brand-subtle'}`}>
+                {s.label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </motion.div>
     </section>
   )
 }

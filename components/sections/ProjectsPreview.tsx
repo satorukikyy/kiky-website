@@ -2,82 +2,75 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import Card from '@/components/ui/Card'
-import Badge from '@/components/ui/Badge'
 import { vaptProjects, grcProjects } from '@/lib/data'
-import type { Project } from '@/lib/data'
 
 const previewProjects = [
   ...vaptProjects.slice(0, 2),
   ...grcProjects.slice(0, 2),
 ]
 
-const tagColorMap: Record<string, 'red' | 'blue' | 'green' | 'yellow' | 'purple'> = {
-  'Web App': 'red',
-  'Android': 'red',
-  'iOS': 'red',
-  'ISO 27001': 'blue',
-  'ISO 27701': 'purple',
-  'Gap Analysis': 'blue',
-  'ISMS': 'blue',
-  'PIMS': 'purple',
-  'API Security': 'green',
-  'Mobile Security': 'red',
-  'Privacy': 'purple',
-  'OWASP Top 10': 'red',
-}
-
-function ProjectCard({ project }: { project: Project }) {
-  return (
-    <Card className="h-full">
-      <div className="flex justify-between items-start mb-4">
-        <span className="font-heading font-bold text-sm text-gray-500">{project.year}</span>
-        <span className={`text-xs font-heading font-bold uppercase px-2 py-1 border-2 ${
-          project.status === 'completed' ? 'border-brand-green text-brand-green' : 'border-brand-yellow text-brand-text'
-        }`}>
-          {project.status}
-        </span>
-      </div>
-      <h3 className="font-heading font-bold text-lg mb-2">{project.client}</h3>
-      <p className="font-body text-sm text-gray-600 mb-4">{project.scope}</p>
-      <div className="flex flex-wrap gap-2">
-        {project.tags.map((tag) => (
-          <Badge key={tag} label={tag} color={tagColorMap[tag] ?? 'blue'} />
-        ))}
-      </div>
-    </Card>
-  )
-}
+const totalProjects = vaptProjects.length + grcProjects.length
 
 export default function ProjectsPreview() {
   return (
-    <section className="px-6 py-16 max-w-6xl mx-auto">
-      <div className="flex justify-between items-end mb-12">
-        <div>
-          <p className="font-heading font-bold text-sm uppercase tracking-widest text-brand-red mb-3">Portfolio</p>
-          <h2 className="text-4xl font-heading font-bold">Recent Projects</h2>
-        </div>
-        <Link href="/projects" className="font-heading font-bold text-sm uppercase tracking-wide text-brand-red hover:underline hidden md:block">
-          View All →
-        </Link>
+    <section className="px-5 max-w-[1120px] mx-auto mb-20">
+      <div className="mb-7">
+        <p className="section-tag mb-2">Projects</p>
+        <h2 className="section-title">Recent engagements.</h2>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {previewProjects.map((project, i) => (
-          <motion.div
-            key={project.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: i * 0.1 }}
+
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-3.5">
+        {/* Count card */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.45 }}
+          className="bg-brand-soft border border-brand-border-soft rounded-[20px] p-7 flex flex-col"
+        >
+          <p className="section-tag mb-2">Total</p>
+          <p className="text-[72px] font-heading font-black tracking-[-4px] leading-none text-brand-text my-3">
+            {totalProjects}+
+          </p>
+          <p className="text-brand-muted text-sm leading-relaxed">
+            Security engagements across various industries.
+          </p>
+          <Link
+            href="/projects"
+            className="mt-auto pt-5 text-brand-green font-heading font-bold text-[13px] hover:opacity-80 transition-opacity"
           >
-            <ProjectCard project={project} />
-          </motion.div>
-        ))}
-      </div>
-      <div className="mt-8 text-center md:hidden">
-        <Link href="/projects" className="font-heading font-bold text-sm uppercase text-brand-red hover:underline">
-          View All Projects →
-        </Link>
+            View All Projects →
+          </Link>
+        </motion.div>
+
+        {/* 2x2 project cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          {previewProjects.map((project, i) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="bg-white border border-brand-border rounded-[20px] p-6 flex flex-col"
+            >
+              <span className="inline-block bg-brand-green-light border border-brand-green-border text-brand-green-dark text-[10px] font-heading font-bold px-2.5 py-1 rounded-full mb-3 self-start">
+                {project.scope.includes('GRC') || project.scope.includes('ISO') ? 'GRC' : 'VAPT'} · {project.year}
+              </span>
+              <h3 className="font-heading font-black text-[16px] text-brand-text tracking-tight leading-[1.3] mb-2">
+                {project.scope}
+              </h3>
+              <p className="text-brand-muted text-[13px] leading-relaxed mb-4">{project.client}</p>
+              <div className="flex flex-wrap gap-1 mt-auto">
+                {project.tags.map((tag) => (
+                  <span key={tag} className="bg-[#F0F4F1] text-brand-text/70 text-[10px] font-body font-medium px-2 py-0.5 rounded">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   )
