@@ -1,27 +1,20 @@
 type PageHeroProps = {
+  tag?: string
   title: string
   subtitle?: string
-  accentColor?: string
 }
 
-export default function PageHero({ title, subtitle, accentColor = '#E63946' }: PageHeroProps) {
+export default function PageHero({ tag = 'Portfolio', title, subtitle }: PageHeroProps) {
   return (
-    <section className="pt-32 pb-16 px-6 max-w-6xl mx-auto">
-      <div className="inline-block mb-4">
-        <h1 className="text-5xl md:text-7xl font-heading font-bold text-brand-text leading-tight">
-          {title.split(' ').map((word, i) => (
-            <span key={i}>
-              {i === 0 ? word : (
-                <span style={{ color: accentColor }}> {word}</span>
-              )}
-            </span>
-          ))}
-        </h1>
-      </div>
+    <section className="pt-28 pb-10 px-5 max-w-[1120px] mx-auto">
+      <p className="section-tag mb-4">{tag}</p>
+      <h1 className="text-[clamp(40px,5vw,64px)] font-heading font-black tracking-[-2px] leading-[1.05] text-brand-text mb-5">
+        {title}
+      </h1>
       {subtitle && (
-        <p className="text-lg text-gray-600 font-body max-w-xl mt-4">{subtitle}</p>
+        <p className="text-brand-muted text-base leading-relaxed max-w-lg">{subtitle}</p>
       )}
-      <div className="w-24 h-1 mt-6" style={{ backgroundColor: accentColor }} />
+      <div className="mt-8 h-px bg-brand-border w-full" />
     </section>
   )
 }
