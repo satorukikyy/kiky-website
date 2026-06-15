@@ -4,37 +4,36 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { personalInfo } from '@/lib/data'
-import Button from '@/components/ui/Button'
 
 const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
+  { label: 'About',      href: '/about' },
   { label: 'Experience', href: '/experience' },
-  { label: 'Education', href: '/education' },
-  { label: 'Projects', href: '/projects' },
-  { label: 'Services', href: '/services' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Projects',   href: '/projects' },
+  { label: 'Services',   href: '/services' },
 ]
 
 export default function Navbar() {
   const pathname = usePathname()
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [open, setOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-brand-bg border-b-2 border-brand-text">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="font-heading font-bold text-xl tracking-tight">
-          {personalInfo.nickname}<span className="text-brand-red">.</span>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-brand-bg/95 backdrop-blur-md border-b border-brand-border">
+      <div className="max-w-[1120px] mx-auto px-5 h-[60px] flex items-center justify-between">
+
+        <Link href="/" className="font-heading font-black text-lg tracking-tight text-brand-text">
+          {personalInfo.nickname.toLowerCase()}
+          <span className="text-brand-green">.</span>
         </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`font-heading font-bold text-sm uppercase tracking-wide transition-colors hover:text-brand-red ${
-                pathname === link.href ? 'text-brand-red' : 'text-brand-text'
+              className={`font-body text-sm font-medium transition-colors ${
+                pathname === link.href
+                  ? 'text-brand-text font-semibold'
+                  : 'text-brand-muted hover:text-brand-text'
               }`}
             >
               {link.label}
@@ -42,36 +41,45 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="hidden md:block">
-          <Button variant="primary" href="/contact">Hire Me</Button>
-        </div>
+        <Link
+          href="/contact"
+          className="hidden md:inline-block bg-brand-green text-white font-heading font-bold text-[13px] px-5 py-2 rounded-lg hover:opacity-90 transition-opacity"
+        >
+          Hire Me →
+        </Link>
 
-        {/* Mobile hamburger */}
         <button
-          className="md:hidden font-bold text-2xl"
-          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden w-9 h-9 flex flex-col items-center justify-center gap-1.5"
+          onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
-          {menuOpen ? '✕' : '☰'}
+          <span className={`block w-5 h-0.5 bg-brand-text transition-transform ${open ? 'rotate-45 translate-y-2' : ''}`} />
+          <span className={`block w-5 h-0.5 bg-brand-text transition-opacity ${open ? 'opacity-0' : ''}`} />
+          <span className={`block w-5 h-0.5 bg-brand-text transition-transform ${open ? '-rotate-45 -translate-y-2' : ''}`} />
         </button>
       </div>
 
-      {/* Mobile menu */}
-      {menuOpen && (
-        <div className="md:hidden border-t-2 border-brand-text bg-brand-bg px-6 py-4 flex flex-col gap-4">
+      {open && (
+        <div className="md:hidden bg-brand-bg border-t border-brand-border px-5 py-5 flex flex-col gap-4">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              onClick={() => setMenuOpen(false)}
-              className={`font-heading font-bold uppercase tracking-wide ${
-                pathname === link.href ? 'text-brand-red' : 'text-brand-text'
+              onClick={() => setOpen(false)}
+              className={`font-body text-sm font-medium ${
+                pathname === link.href ? 'text-brand-text' : 'text-brand-muted'
               }`}
             >
               {link.label}
             </Link>
           ))}
-          <Button variant="primary" href="/contact">Hire Me</Button>
+          <Link
+            href="/contact"
+            onClick={() => setOpen(false)}
+            className="bg-brand-green text-white font-heading font-bold text-sm px-5 py-2.5 rounded-lg text-center"
+          >
+            Hire Me →
+          </Link>
         </div>
       )}
     </nav>

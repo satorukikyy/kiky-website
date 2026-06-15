@@ -1,47 +1,39 @@
 import Link from 'next/link'
 import { personalInfo } from '@/lib/data'
 
-const socialLinks = [
-  { label: 'LinkedIn', href: personalInfo.socials.linkedin },
-  { label: 'GitHub', href: personalInfo.socials.github },
+const socials = [
+  { label: 'LinkedIn',  href: personalInfo.socials.linkedin },
+  { label: 'GitHub',    href: personalInfo.socials.github },
   { label: 'Instagram', href: personalInfo.socials.instagram },
-  { label: 'X / Twitter', href: personalInfo.socials.twitter },
-  { label: 'Email', href: `mailto:${personalInfo.email}` },
+  { label: 'Twitter',   href: personalInfo.socials.twitter },
 ]
 
 export default function Footer() {
   return (
-    <footer className="border-t-2 border-brand-text bg-brand-text text-white mt-24">
-      <div className="max-w-6xl mx-auto px-6 py-12">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-8">
-          <div>
-            <p className="font-heading font-bold text-2xl mb-2">
-              {personalInfo.nickname}<span className="text-brand-red">.</span>
-            </p>
-            <p className="text-gray-400 text-sm font-body">{personalInfo.title}</p>
-            <p className="text-gray-400 text-sm font-body">{personalInfo.company}</p>
-          </div>
-
-          <div className="flex flex-wrap gap-4">
-            {socialLinks.map((s) => (
-              <Link
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-heading font-bold text-sm uppercase tracking-wide text-gray-300 hover:text-brand-yellow transition-colors"
-              >
-                {s.label}
-              </Link>
-            ))}
-          </div>
+    <footer className="border-t border-brand-border mt-20">
+      <div className="max-w-[1120px] mx-auto px-5 py-9 flex flex-col md:flex-row items-center justify-between gap-5">
+        <div className="font-heading font-black text-[17px] text-brand-text">
+          {personalInfo.nickname.toLowerCase()}
+          <span className="text-brand-green">.</span>
         </div>
 
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-          <p className="text-gray-500 text-sm font-body">
-            © {new Date().getFullYear()} {personalInfo.name}. Built with Next.js & ❤️
-          </p>
+        <div className="flex flex-wrap justify-center gap-6">
+          {socials.map((s) => (
+            <Link
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-brand-subtle text-[13px] font-medium hover:text-brand-text transition-colors"
+            >
+              {s.label}
+            </Link>
+          ))}
         </div>
+
+        <p className="text-[#D1D5DB] text-xs">
+          © {new Date().getFullYear()} {personalInfo.name}
+        </p>
       </div>
     </footer>
   )
