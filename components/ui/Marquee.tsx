@@ -9,7 +9,7 @@ export default function Marquee({ items }: MarqueeProps) {
     <div className="bg-brand-green overflow-hidden py-3.5 my-16">
       <div className="flex animate-marquee whitespace-nowrap">
         {doubled.map((item, i) => (
-          <span key={i} className="inline-flex items-center">
+          <span key={`${item}-${i}`} className="inline-flex items-center">
             <span className="font-heading font-extrabold text-[11px] text-white uppercase tracking-[2.5px] px-7">
               {item}
             </span>

@@ -21,7 +21,7 @@ export default function Button({
   const base =
     variant === 'primary'
       ? 'bg-brand-green text-white font-heading font-bold text-sm px-7 py-3 rounded-[10px] inline-block transition-opacity hover:opacity-90 active:scale-[0.98]'
-      : 'bg-white border border-[#D1D5DB] text-brand-text font-heading font-semibold text-sm px-7 py-3 rounded-[10px] inline-block transition-colors hover:bg-brand-soft active:scale-[0.98]'
+      : 'bg-white border border-brand-border text-brand-text font-heading font-semibold text-sm px-7 py-3 rounded-[10px] inline-block transition-colors hover:bg-brand-soft active:scale-[0.98]'
 
   const cls = `${base} cursor-pointer ${className}`
 
