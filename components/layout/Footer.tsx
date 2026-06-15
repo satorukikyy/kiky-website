@@ -31,7 +31,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <p className="text-[#D1D5DB] text-xs">
+        <p className="text-brand-subtle text-xs">
           © {new Date().getFullYear()} {personalInfo.name}
         </p>
       </div>
