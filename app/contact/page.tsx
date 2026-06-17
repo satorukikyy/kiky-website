@@ -137,19 +137,20 @@ export default function ContactPage() {
           </div>
 
           <div>
-            <a
-              href={waUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-disabled={!canSubmit}
-              className={`inline-flex items-center gap-2 font-mono text-[13px] px-5 py-2.5 transition-all ${
-                canSubmit
-                  ? 'text-white bg-c-purple hover:bg-c-purple-hover cursor-pointer'
-                  : 'text-c-subtle bg-c-border pointer-events-none cursor-not-allowed'
-              }`}
-            >
-              Send via WhatsApp →
-            </a>
+            {canSubmit ? (
+              <a
+                href={waUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 font-mono text-[13px] px-5 py-2.5 text-white bg-c-purple hover:bg-c-purple-hover transition-colors cursor-pointer"
+              >
+                Send via WhatsApp →
+              </a>
+            ) : (
+              <span className="inline-flex items-center gap-2 font-mono text-[13px] px-5 py-2.5 text-c-subtle bg-c-border cursor-not-allowed">
+                Send via WhatsApp →
+              </span>
+            )}
             {!canSubmit && (
               <p className="font-mono text-[12px] text-c-subtle mt-3">
                 Fill in name and message to continue.

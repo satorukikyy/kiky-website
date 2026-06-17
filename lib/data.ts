@@ -114,8 +114,6 @@ export type Service = {
   title: string
   description: string
   items: string[]
-  color: string
-  accentColor: string
 }
 
 export const services: Service[] = [
@@ -130,8 +128,6 @@ export const services: Service[] = [
       'Vulnerability Assessment',
       'Security Review & Reporting',
     ],
-    color: 'brand-red',
-    accentColor: '#E63946',
   },
   {
     id: 'grc',
@@ -144,8 +140,6 @@ export const services: Service[] = [
       'Internal Audit',
       'Risk Assessment & Treatment',
     ],
-    color: 'brand-blue',
-    accentColor: '#118AB2',
   },
 ]
 
@@ -219,25 +213,3 @@ export const vaptClients: VAPTClient[] = [
   { name: 'PT Inspiro', year: 2026 },
 ]
 
-export const marqueeItems = [
-  'GRC Analyst',
-  'Security Researcher',
-  'ISO 27001 Lead Auditor',
-  'ISO 27701 Lead Auditor',
-  'Web App Pentester',
-  'Mobile Pentester',
-  'Bug Bounty Hunter',
-]
-
-export const skills = [
-  { name: 'ISO 27001', color: 'brand-blue' },
-  { name: 'ISO 27701', color: 'brand-purple' },
-  { name: 'Gap Analysis', color: 'brand-blue' },
-  { name: 'Internal Audit', color: 'brand-blue' },
-  { name: 'Policy Writing', color: 'brand-green' },
-  { name: 'Web App Pentest', color: 'brand-red' },
-  { name: 'Mobile Pentest', color: 'brand-red' },
-  { name: 'Bug Bounty', color: 'brand-yellow' },
-  { name: 'Mikrotik / Networking', color: 'brand-green' },
-  { name: 'Risk Assessment', color: 'brand-purple' },
-]
