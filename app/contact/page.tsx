@@ -1,123 +1,165 @@
 'use client'
 
 import { useState } from 'react'
-import PageHero from '@/components/ui/PageHero'
 import { personalInfo } from '@/lib/data'
 
+const serviceOptions = [
+  { value: 'grc',     label: 'GRC Services — ISO/IEC 27001 / 27701' },
+  { value: 'vapt',    label: 'VAPT — Web / Mobile Penetration Testing' },
+  { value: 'audit',   label: 'Internal Audit & Compliance Review' },
+  { value: 'consult', label: 'Security Consultation' },
+  { value: 'other',   label: 'Other / General Inquiry' },
+]
+
+const serviceLabels: Record<string, string> = {
+  grc:     'GRC Services (ISO/IEC 27001 / 27701)',
+  vapt:    'VAPT / Penetration Testing',
+  audit:   'Internal Audit & Compliance Review',
+  consult: 'Security Consultation',
+  other:   'General Inquiry',
+}
+
+const socials = [
+  { label: 'Email',     href: `mailto:${personalInfo.email}`,          value: personalInfo.email },
+  { label: 'WhatsApp',  href: `https://wa.me/${personalInfo.whatsappNumber}`, value: personalInfo.whatsapp },
+  { label: 'LinkedIn',  href: personalInfo.socials.linkedin,            value: 'onerrorkx' },
+  { label: 'GitHub',    href: personalInfo.socials.github,              value: 'satorukikyy' },
+  { label: 'Instagram', href: personalInfo.socials.instagram,           value: '@kxs3c' },
+]
+
 export default function ContactPage() {
-  const [name, setName] = useState('')
+  const [name,    setName]    = useState('')
+  const [org,     setOrg]     = useState('')
+  const [service, setService] = useState('grc')
   const [message, setMessage] = useState('')
 
-  const waGreeting = `Hello ${personalInfo.nickname}, I'm ${name}. ${message}`
-  const waUrl = `https://wa.me/${personalInfo.whatsappNumber}?text=${encodeURIComponent(waGreeting)}`
+  const waMessage = [
+    `Hello Kiky! I'm ${name}${org ? ` from ${org}` : ''}.`,
+    '',
+    `Service: ${serviceLabels[service] ?? service}`,
+    '',
+    message,
+  ].join('\n')
 
-  const socials = [
-    { label: 'LinkedIn',  href: personalInfo.socials.linkedin,  description: 'Connect professionally' },
-    { label: 'GitHub',    href: personalInfo.socials.github,    description: 'See my code' },
-    { label: 'Instagram', href: personalInfo.socials.instagram, description: '@kxs3c' },
-    { label: 'Twitter',   href: personalInfo.socials.twitter,   description: '@kxgapapa' },
-  ]
+  const waUrl = `https://wa.me/${personalInfo.whatsappNumber}?text=${encodeURIComponent(waMessage)}`
+  const canSubmit = name.trim() !== '' && message.trim() !== ''
+
+  const inputClass = "w-full border-b border-c-border bg-transparent py-2.5 font-body text-[14px] text-c-text placeholder:text-c-subtle focus:outline-none focus:border-c-purple transition-colors"
 
   return (
-    <div className="pt-[60px]">
-      <PageHero
-        tag="Contact"
-        title="Let's work together."
-        subtitle="Have a security project in mind? Reach out via WhatsApp or connect on social media."
-      />
+    <div className="max-w-[720px] mx-auto px-6 pt-28 pb-24">
 
-      <div className="max-w-[1120px] mx-auto px-5 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-4">
+      <h1 className="font-body font-bold text-[36px] md:text-[44px] leading-[1.1] tracking-[-1px] text-c-text mb-4">
+        Let&apos;s work together.
+      </h1>
+      <p className="font-body text-[15px] text-c-muted mb-12">
+        Have a project in mind? Fill in the form or reach out directly.
+      </p>
 
-          {/* WhatsApp form */}
-          <div className="bg-white border border-brand-border rounded-[20px] p-8">
-            <p className="section-tag mb-4">Send a Message</p>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-[12px] font-heading font-bold text-brand-text mb-1.5 tracking-wide">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="John Doe"
-                  className="w-full border border-brand-border rounded-xl px-4 py-3 text-sm font-body text-brand-text placeholder:text-brand-subtle focus:outline-none focus:ring-2 focus:ring-brand-green/30 focus:border-brand-green transition-colors bg-brand-bg"
-                />
-              </div>
-              <div>
-                <label className="block text-[12px] font-heading font-bold text-brand-text mb-1.5 tracking-wide">
-                  Message
-                </label>
-                <textarea
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  placeholder="I need help with a security assessment..."
-                  rows={5}
-                  className="w-full border border-brand-border rounded-xl px-4 py-3 text-sm font-body text-brand-text placeholder:text-brand-subtle focus:outline-none focus:ring-2 focus:ring-brand-green/30 focus:border-brand-green transition-colors resize-none bg-brand-bg"
-                />
-              </div>
+      {/* Contact table */}
+      <section className="mb-16">
+        <p className="font-mono text-[11px] text-c-subtle uppercase tracking-[3px] mb-6">Contact</p>
+        <div className="space-y-3">
+          {socials.map((s) => (
+            <div key={s.label} className="flex items-baseline gap-6">
+              <span className="font-mono text-[12px] text-c-subtle w-24 flex-shrink-0">{s.label}</span>
               <a
-                href={waUrl}
-                target="_blank"
+                href={s.href}
+                target={s.href.startsWith('mailto') ? undefined : '_blank'}
                 rel="noopener noreferrer"
-                className={`block w-full text-center bg-brand-green text-white font-heading font-bold text-sm py-3.5 rounded-[10px] transition-opacity ${
-                  name && message ? 'hover:opacity-90' : 'opacity-50 pointer-events-none'
-                }`}
+                className="font-body text-[14px] text-c-purple hover:text-c-purple-hover transition-colors"
               >
-                Send via WhatsApp →
+                {s.value}
               </a>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Form */}
+      <section className="border-t border-c-border pt-16">
+        <p className="font-mono text-[11px] text-c-subtle uppercase tracking-[3px] mb-8">Send a Message</p>
+        <div className="space-y-8">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div>
+              <label className="font-mono text-[11px] text-c-subtle uppercase tracking-[2px] block mb-2">
+                Name <span className="text-c-purple">*</span>
+              </label>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Your full name"
+                className={inputClass}
+              />
+            </div>
+            <div>
+              <label className="font-mono text-[11px] text-c-subtle uppercase tracking-[2px] block mb-2">
+                Organization
+              </label>
+              <input
+                type="text"
+                value={org}
+                onChange={(e) => setOrg(e.target.value)}
+                placeholder="Company or institution"
+                className={inputClass}
+              />
             </div>
           </div>
 
-          {/* Contact info */}
-          <div className="flex flex-col gap-3.5">
-            <div className="bg-brand-soft border border-brand-border-soft rounded-[20px] p-7">
-              <p className="section-tag mb-4">Direct Contact</p>
-              <div className="space-y-3">
-                <div>
-                  <p className="text-[11px] font-body text-brand-subtle uppercase tracking-[1px] mb-0.5">Email</p>
-                  <a href={`mailto:${personalInfo.email}`} className="text-brand-text font-heading font-semibold text-sm hover:text-brand-green transition-colors">
-                    {personalInfo.email}
-                  </a>
-                </div>
-                <div>
-                  <p className="text-[11px] font-body text-brand-subtle uppercase tracking-[1px] mb-0.5">WhatsApp</p>
-                  <p className="text-brand-text font-heading font-semibold text-sm">{personalInfo.whatsapp}</p>
-                </div>
-                <div>
-                  <p className="text-[11px] font-body text-brand-subtle uppercase tracking-[1px] mb-0.5">Company</p>
-                  <p className="text-brand-text font-heading font-semibold text-sm">{personalInfo.company}</p>
-                </div>
-              </div>
-            </div>
+          <div>
+            <label className="font-mono text-[11px] text-c-subtle uppercase tracking-[2px] block mb-2">
+              Service
+            </label>
+            <select
+              value={service}
+              onChange={(e) => setService(e.target.value)}
+              className="w-full border-b border-c-border bg-transparent py-2.5 font-body text-[14px] text-c-text focus:outline-none focus:border-c-purple transition-colors cursor-pointer"
+            >
+              {serviceOptions.map((opt) => (
+                <option key={opt.value} value={opt.value}>{opt.label}</option>
+              ))}
+            </select>
+          </div>
 
-            <div className="bg-white border border-brand-border rounded-[20px] p-7">
-              <p className="section-tag mb-4">Social Media</p>
-              <div className="space-y-2.5">
-                {socials.map((s) => (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-between group"
-                  >
-                    <div>
-                      <p className="font-heading font-bold text-sm text-brand-text group-hover:text-brand-green transition-colors">
-                        {s.label}
-                      </p>
-                      <p className="text-brand-subtle text-[11px] font-body">{s.description}</p>
-                    </div>
-                    <span className="text-brand-subtle group-hover:text-brand-green transition-colors text-sm">→</span>
-                  </a>
-                ))}
-              </div>
-            </div>
+          <div>
+            <label className="font-mono text-[11px] text-c-subtle uppercase tracking-[2px] block mb-2">
+              Message <span className="text-c-purple">*</span>
+            </label>
+            <textarea
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Describe your project, goals, or questions…"
+              rows={5}
+              className="w-full border-b border-c-border bg-transparent py-2.5 font-body text-[14px] text-c-text placeholder:text-c-subtle focus:outline-none focus:border-c-purple transition-colors resize-none"
+            />
+          </div>
+
+          <div>
+            <a
+              href={waUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-disabled={!canSubmit}
+              className={`inline-flex items-center gap-2 font-mono text-[13px] px-5 py-2.5 transition-all ${
+                canSubmit
+                  ? 'text-white bg-c-purple hover:bg-c-purple-hover cursor-pointer'
+                  : 'text-c-subtle bg-c-border pointer-events-none cursor-not-allowed'
+              }`}
+            >
+              Send via WhatsApp →
+            </a>
+            {!canSubmit && (
+              <p className="font-mono text-[12px] text-c-subtle mt-3">
+                Fill in name and message to continue.
+              </p>
+            )}
           </div>
 
         </div>
-      </div>
+      </section>
+
     </div>
   )
 }
