@@ -1,45 +1,29 @@
-import PageHero from '@/components/ui/PageHero'
-import { vaptProjects } from '@/lib/data'
+import type { Metadata } from 'next'
+import { vaptClients } from '@/lib/data'
 
-export default function VAPTPage() {
+export const metadata: Metadata = {
+  title: 'VAPT Projects',
+  description: 'Vulnerability Assessment & Penetration Testing engagements.',
+}
+
+export default function VaptPage() {
   return (
-    <div className="pt-[60px]">
-      <PageHero
-        tag="VAPT"
-        title="Penetration Testing Projects."
-        subtitle="Web and mobile application security assessments delivered with full findings reports."
-      />
-
-      <div className="max-w-[1120px] mx-auto px-5 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {vaptProjects.map((project) => (
-            <div key={project.id} className="bg-white border border-brand-border rounded-[20px] p-8">
-              <div className="flex items-start justify-between gap-3 mb-4">
-                <span className="inline-block bg-brand-green-light border border-brand-green-border text-brand-green-dark text-[10px] font-heading font-bold px-2.5 py-1 rounded-full">
-                  VAPT · {project.year}
-                </span>
-                <span className={`text-[10px] font-heading font-bold px-2.5 py-1 rounded-full ${
-                  project.status === 'completed'
-                    ? 'bg-[#F0F4F1] text-brand-text/70'
-                    : 'bg-yellow-50 text-yellow-700'
-                }`}>
-                  {project.status === 'completed' ? 'Completed' : 'Ongoing'}
-                </span>
-              </div>
-              <h2 className="font-heading font-black text-[20px] text-brand-text tracking-tight leading-[1.25] mb-2">
-                {project.scope}
-              </h2>
-              <p className="text-brand-muted text-sm mb-5">{project.client}</p>
-              <div className="flex flex-wrap gap-1.5">
-                {project.tags.map((tag) => (
-                  <span key={tag} className="bg-[#F0F4F1] text-brand-text/70 text-[11px] font-body font-medium px-2.5 py-1 rounded-md">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+    <div className="max-w-[720px] mx-auto px-6 pt-28 pb-24">
+      <p className="font-mono text-[11px] text-c-subtle uppercase tracking-[3px] mb-4">vapt</p>
+      <h1 className="font-body font-bold text-[36px] md:text-[44px] leading-[1.1] tracking-[-1px] text-c-text mb-12">
+        Penetration Testing.
+      </h1>
+      <p className="font-body text-[15px] text-c-muted leading-[1.75] mb-12">
+        Web application, mobile application, and API security assessments across technology, finance,
+        and critical infrastructure sectors.
+      </p>
+      <div className="space-y-2">
+        {vaptClients.map((client) => (
+          <div key={client.name} className="flex items-baseline gap-4">
+            <span className="font-mono text-[12px] text-c-subtle w-12 flex-shrink-0">{client.year}</span>
+            <span className="font-body text-[14px] text-c-text">{client.name}</span>
+          </div>
+        ))}
       </div>
     </div>
   )

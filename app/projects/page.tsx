@@ -1,103 +1,65 @@
-import PageHero from '@/components/ui/PageHero'
-import { vaptProjects, grcProjects } from '@/lib/data'
+import type { Metadata } from 'next'
+import { vaptClients, grcCategories } from '@/lib/data'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Projects',
+  description: 'GRC and VAPT security engagements across technology, finance, and critical infrastructure.',
+}
+
+const allGRCClients = grcCategories.flatMap(c => c.clients)
 
 export default function ProjectsPage() {
   return (
-    <div className="pt-[60px]">
-      <PageHero
-        tag="Projects"
-        title="Security engagements."
-        subtitle="A selection of VAPT and GRC projects delivered for clients across various industries."
-      />
+    <div className="max-w-[720px] mx-auto px-6 pt-28 pb-24">
 
-      <div className="max-w-[1120px] mx-auto px-5 pb-20 space-y-16">
+      <h1 className="font-body font-bold text-[36px] md:text-[44px] leading-[1.1] tracking-[-1px] text-c-text mb-12">
+        Projects.
+      </h1>
 
-        {/* VAPT */}
-        <div>
-          <div className="flex items-center justify-between mb-5">
-            <div>
-              <p className="section-tag mb-1">VAPT</p>
-              <h2 className="section-title">Penetration Testing Projects</h2>
-            </div>
-            <Link href="/projects/vapt" className="text-brand-green font-heading font-bold text-sm hover:opacity-80 transition-opacity">
-              View All →
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-            {vaptProjects.map((project) => (
-              <div key={project.id} className="bg-white border border-brand-border rounded-[20px] p-7">
-                <div className="flex items-start justify-between gap-3 mb-3">
-                  <span className="inline-block bg-brand-green-light border border-brand-green-border text-brand-green-dark text-[10px] font-heading font-bold px-2.5 py-1 rounded-full">
-                    VAPT · {project.year}
-                  </span>
-                  <span className={`text-[10px] font-heading font-bold px-2.5 py-1 rounded-full ${
-                    project.status === 'completed'
-                      ? 'bg-[#F0F4F1] text-brand-text/70'
-                      : 'bg-yellow-50 text-yellow-700'
-                  }`}>
-                    {project.status === 'completed' ? 'Completed' : 'Ongoing'}
-                  </span>
-                </div>
-                <h3 className="font-heading font-black text-[17px] text-brand-text tracking-tight leading-[1.3] mb-2">
-                  {project.scope}
-                </h3>
-                <p className="text-brand-muted text-sm mb-4">{project.client}</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="bg-[#F0F4F1] text-brand-text/70 text-[10px] font-body font-medium px-2.5 py-1 rounded-md">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+      {/* VAPT */}
+      <section className="mb-16">
+        <div className="flex items-baseline justify-between mb-6">
+          <p className="font-mono text-[11px] text-c-subtle uppercase tracking-[3px]">vapt</p>
+          <Link href="/projects/vapt" className="font-mono text-[12px] text-c-purple hover:text-c-purple-hover transition-colors">
+            view all →
+          </Link>
         </div>
-
-        {/* GRC */}
-        <div>
-          <div className="flex items-center justify-between mb-5">
-            <div>
-              <p className="section-tag mb-1">GRC</p>
-              <h2 className="section-title">Compliance &amp; Governance Projects</h2>
+        <div className="space-y-2">
+          {vaptClients.map((client) => (
+            <div key={client.name} className="flex items-baseline gap-4">
+              <span className="font-mono text-[12px] text-c-subtle w-12 flex-shrink-0">{client.year}</span>
+              <span className="font-body text-[14px] text-c-text">{client.name}</span>
             </div>
-            <Link href="/projects/grc" className="text-brand-green font-heading font-bold text-sm hover:opacity-80 transition-opacity">
-              View All →
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-            {grcProjects.map((project) => (
-              <div key={project.id} className="bg-white border border-brand-border rounded-[20px] p-7">
-                <div className="flex items-start justify-between gap-3 mb-3">
-                  <span className="inline-block bg-brand-green-light border border-brand-green-border text-brand-green-dark text-[10px] font-heading font-bold px-2.5 py-1 rounded-full">
-                    GRC · {project.year}
-                  </span>
-                  <span className={`text-[10px] font-heading font-bold px-2.5 py-1 rounded-full ${
-                    project.status === 'completed'
-                      ? 'bg-[#F0F4F1] text-brand-text/70'
-                      : 'bg-yellow-50 text-yellow-700'
-                  }`}>
-                    {project.status === 'completed' ? 'Completed' : 'Ongoing'}
-                  </span>
-                </div>
-                <h3 className="font-heading font-black text-[17px] text-brand-text tracking-tight leading-[1.3] mb-2">
-                  {project.scope}
-                </h3>
-                <p className="text-brand-muted text-sm mb-4">{project.client}</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="bg-[#F0F4F1] text-brand-text/70 text-[10px] font-body font-medium px-2.5 py-1 rounded-md">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+          ))}
         </div>
+      </section>
 
-      </div>
+      {/* GRC */}
+      <section className="border-t border-c-border pt-16">
+        <div className="flex items-baseline justify-between mb-6">
+          <p className="font-mono text-[11px] text-c-subtle uppercase tracking-[3px]">grc</p>
+          <Link href="/projects/grc" className="font-mono text-[12px] text-c-purple hover:text-c-purple-hover transition-colors">
+            view all →
+          </Link>
+        </div>
+        <div className="space-y-6">
+          {grcCategories.map((cat) => (
+            <div key={cat.id}>
+              <p className="font-mono text-[12px] text-c-muted mb-3">{cat.shortLabel}</p>
+              <div className="space-y-2 pl-0">
+                {cat.clients.map((client) => (
+                  <div key={client.name} className="flex items-baseline gap-4">
+                    <span className="font-mono text-[12px] text-c-subtle w-12 flex-shrink-0">{client.year}</span>
+                    <span className="font-body text-[14px] text-c-text">{client.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
     </div>
   )
 }
