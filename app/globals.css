@@ -3,25 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: #F7FAF7;
-    --foreground: #0A0A0A;
-  }
-
   body {
-    @apply bg-brand-bg text-brand-text font-body antialiased;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
-  }
-}
-
-@layer utilities {
-  .section-tag {
-    @apply text-[10px] text-brand-green tracking-[3px] uppercase font-bold font-heading;
-  }
-  .section-title {
-    @apply text-2xl font-heading font-black text-brand-text tracking-tight;
+    @apply bg-c-bg text-c-text font-body antialiased;
   }
 }

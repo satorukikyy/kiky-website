@@ -8,30 +8,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'brand-bg':           '#F7FAF7',
-        'brand-soft':         '#F0F7F1',
-        'brand-green':        '#00A845',
-        'brand-green-dark':   '#007A32',
-        'brand-green-light':  '#EBF7EE',
-        'brand-green-border': '#C3E6CC',
-        'brand-text':         '#0A0A0A',
-        'brand-muted':        '#6B7280',
-        'brand-subtle':       '#9CA3AF',
-        'brand-border':       '#E4EDE5',
-        'brand-border-soft':  '#DDE9DE',
+        'c-bg':           '#FFFFFF',
+        'c-text':         '#111111',
+        'c-muted':        '#6B7280',
+        'c-subtle':       '#9CA3AF',
+        'c-border':       '#E5E7EB',
+        'c-purple':       '#7C3AED',
+        'c-purple-hover': '#8B5CF6',
+        'c-purple-light': '#EDE9FE',
       },
       fontFamily: {
-        heading: ['var(--font-space-grotesk)', 'sans-serif'],
-        body:    ['var(--font-inter)', 'sans-serif'],
-      },
-      keyframes: {
-        marquee: {
-          '0%':   { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-50%)' },
-        },
-      },
-      animation: {
-        marquee: 'marquee 25s linear infinite',
+        body: ['var(--font-inter)', 'sans-serif'],
+        mono: ['var(--font-mono)', 'monospace'],
       },
     },
   },
