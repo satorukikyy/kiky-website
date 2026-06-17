@@ -7,33 +7,41 @@ import { personalInfo } from '@/lib/data'
 
 const navLinks = [
   { label: 'About',      href: '/about' },
-  { label: 'Experience', href: '/experience' },
+  { label: 'Background', href: '/background' },
   { label: 'Projects',   href: '/projects' },
   { label: 'Services',   href: '/services' },
+  { label: 'Contact',    href: '/contact' },
 ]
 
 export default function Navbar() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
 
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-brand-bg/95 backdrop-blur-md border-b border-brand-border">
-      <div className="max-w-[1120px] mx-auto px-5 h-[60px] flex items-center justify-between">
+  const isActive = (href: string) =>
+    pathname === href || pathname.startsWith(href + '/')
 
-        <Link href="/" className="font-heading font-black text-lg tracking-tight text-brand-text">
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-c-border">
+      <nav className="max-w-[720px] mx-auto px-6 h-14 flex items-center justify-between">
+
+        <Link
+          href="/"
+          className="font-body font-bold text-[16px] text-c-text select-none"
+        >
           {personalInfo.nickname.toLowerCase()}
-          <span className="text-brand-green">.</span>
+          <span className="text-c-purple">.</span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-8">
+        {/* Desktop links */}
+        <div className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`font-body text-sm font-medium transition-colors ${
-                pathname === link.href
-                  ? 'text-brand-text font-semibold'
-                  : 'text-brand-muted hover:text-brand-text'
+              className={`font-body text-[13px] transition-colors pb-px ${
+                isActive(link.href)
+                  ? 'text-c-text border-b-2 border-c-purple'
+                  : 'text-c-muted hover:text-c-text'
               }`}
             >
               {link.label}
@@ -41,47 +49,35 @@ export default function Navbar() {
           ))}
         </div>
 
-        <Link
-          href="/contact"
-          className="hidden md:inline-block bg-brand-green text-white font-heading font-bold text-[13px] px-5 py-2 rounded-lg hover:opacity-90 transition-opacity"
-        >
-          Hire Me →
-        </Link>
-
+        {/* Mobile toggle */}
         <button
-          className="md:hidden w-9 h-9 flex flex-col items-center justify-center gap-1.5"
+          className="md:hidden w-8 h-8 flex flex-col items-center justify-center gap-[5px]"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
-          <span className={`block w-5 h-0.5 bg-brand-text transition-transform ${open ? 'rotate-45 translate-y-2' : ''}`} />
-          <span className={`block w-5 h-0.5 bg-brand-text transition-opacity ${open ? 'opacity-0' : ''}`} />
-          <span className={`block w-5 h-0.5 bg-brand-text transition-transform ${open ? '-rotate-45 -translate-y-2' : ''}`} />
+          <span className={`block w-4 h-px bg-c-text transition-all ${open ? 'rotate-45 translate-y-[6px]' : ''}`} />
+          <span className={`block w-4 h-px bg-c-text transition-opacity ${open ? 'opacity-0' : ''}`} />
+          <span className={`block w-4 h-px bg-c-text transition-all ${open ? '-rotate-45 -translate-y-[6px]' : ''}`} />
         </button>
-      </div>
+      </nav>
 
+      {/* Mobile drawer */}
       {open && (
-        <div className="md:hidden bg-brand-bg border-t border-brand-border px-5 py-5 flex flex-col gap-4">
+        <div className="md:hidden bg-white border-b border-c-border px-6 py-5 flex flex-col gap-4">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className={`font-body text-sm font-medium ${
-                pathname === link.href ? 'text-brand-text' : 'text-brand-muted'
+              className={`font-body text-[14px] ${
+                isActive(link.href) ? 'text-c-text font-semibold' : 'text-c-muted'
               }`}
             >
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/contact"
-            onClick={() => setOpen(false)}
-            className="bg-brand-green text-white font-heading font-bold text-sm px-5 py-2.5 rounded-lg text-center"
-          >
-            Hire Me →
-          </Link>
         </div>
       )}
-    </nav>
+    </header>
   )
 }
