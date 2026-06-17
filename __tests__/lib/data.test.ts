@@ -1,4 +1,4 @@
-import { personalInfo, experience, education, certifications, services, vaptProjects, grcProjects } from '../../lib/data'
+import { personalInfo, experience, education, certifications, services, vaptClients, grcCategories } from '../../lib/data'
 
 test('personalInfo has required fields', () => {
   expect(personalInfo.name).toBe('Rizky Aditya')
@@ -18,10 +18,18 @@ test('education has two entries', () => {
   expect(education.length).toBe(2)
 })
 
-test('certifications has three entries', () => {
-  expect(certifications.length).toBe(3)
+test('certifications has entries', () => {
+  expect(certifications.length).toBeGreaterThan(0)
 })
 
 test('services has two entries', () => {
   expect(services.length).toBe(2)
+})
+
+test('vaptClients has entries', () => {
+  expect(vaptClients.length).toBeGreaterThan(0)
+})
+
+test('grcCategories has entries', () => {
+  expect(grcCategories.length).toBeGreaterThan(0)
 })

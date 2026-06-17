@@ -19,12 +19,12 @@ export default function ContactForm({ whatsappNumber }: ContactFormProps) {
     window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank')
   }
 
-  const inputCls = 'w-full border-2 border-brand-text px-4 py-3 font-body bg-white focus:outline-none focus:border-brand-red transition-colors'
+  const inputCls = 'w-full border-2 border-c-border px-4 py-3 font-body bg-white focus:outline-none focus:border-c-purple transition-colors'
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <div>
-        <label htmlFor="name" className="block font-heading font-bold text-sm uppercase tracking-wide mb-2">
+        <label htmlFor="name" className="block font-body font-bold text-sm uppercase tracking-wide mb-2">
           Name
         </label>
         <input
@@ -39,7 +39,7 @@ export default function ContactForm({ whatsappNumber }: ContactFormProps) {
       </div>
 
       <div>
-        <label htmlFor="email" className="block font-heading font-bold text-sm uppercase tracking-wide mb-2">
+        <label htmlFor="email" className="block font-body font-bold text-sm uppercase tracking-wide mb-2">
           Email
         </label>
         <input
@@ -54,7 +54,7 @@ export default function ContactForm({ whatsappNumber }: ContactFormProps) {
       </div>
 
       <div>
-        <label htmlFor="subject" className="block font-heading font-bold text-sm uppercase tracking-wide mb-2">
+        <label htmlFor="subject" className="block font-body font-bold text-sm uppercase tracking-wide mb-2">
           Subject
         </label>
         <input
@@ -69,7 +69,7 @@ export default function ContactForm({ whatsappNumber }: ContactFormProps) {
       </div>
 
       <div>
-        <label htmlFor="message" className="block font-heading font-bold text-sm uppercase tracking-wide mb-2">
+        <label htmlFor="message" className="block font-body font-bold text-sm uppercase tracking-wide mb-2">
           Message
         </label>
         <textarea

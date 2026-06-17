@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-type CardVariant = 'default' | 'green' | 'soft'
+type CardVariant = 'default' | 'purple' | 'soft'
 
 type CardProps = {
   children: ReactNode
@@ -11,9 +11,9 @@ type CardProps = {
 export default function Card({ children, variant = 'default', className = '' }: CardProps) {
   const base = 'rounded-[20px] p-7'
   const variants: Record<CardVariant, string> = {
-    default: 'bg-white border border-brand-border',
-    green:   'bg-brand-green border border-brand-green',
-    soft:    'bg-brand-soft border border-brand-border-soft',
+    default: 'bg-white border border-c-border',
+    purple:  'bg-c-purple border border-c-purple',
+    soft:    'bg-c-purple-light border border-c-border',
   }
 
   return (

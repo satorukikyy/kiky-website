@@ -1,19 +1,25 @@
 // Smoke test: verify tailwind config exports custom colors
 import config from '../tailwind.config'
 
-test('tailwind config has green/white editorial custom colors', () => {
+test('tailwind config has purple/white minimalist custom colors', () => {
   const colors = config.theme?.extend?.colors as Record<string, unknown>
-  expect(colors['brand-bg']).toBe('#F7FAF7')
-  expect(colors['brand-soft']).toBe('#F0F7F1')
-  expect(colors['brand-green']).toBe('#00A845')
-  expect(colors['brand-green-dark']).toBe('#007A32')
-  expect(colors['brand-green-light']).toBe('#EBF7EE')
-  expect(colors['brand-green-border']).toBe('#C3E6CC')
-  expect(colors['brand-text']).toBe('#0A0A0A')
-  expect(colors['brand-muted']).toBe('#6B7280')
-  expect(colors['brand-subtle']).toBe('#9CA3AF')
-  expect(colors['brand-border']).toBe('#E4EDE5')
-  expect(colors['brand-border-soft']).toBe('#DDE9DE')
+  expect(colors['c-bg']).toBe('#FFFFFF')
+  expect(colors['c-text']).toBe('#111111')
+  expect(colors['c-muted']).toBe('#6B7280')
+  expect(colors['c-subtle']).toBe('#9CA3AF')
+  expect(colors['c-border']).toBe('#E5E7EB')
+  expect(colors['c-purple']).toBe('#7C3AED')
+  expect(colors['c-purple-hover']).toBe('#8B5CF6')
+  expect(colors['c-purple-light']).toBe('#EDE9FE')
+})
+
+test('tailwind config does not contain removed brand-green tokens', () => {
+  const colors = config.theme?.extend?.colors as Record<string, unknown>
+  expect(colors['brand-green']).toBeUndefined()
+  expect(colors['brand-bg']).toBeUndefined()
+  expect(colors['brand-text']).toBeUndefined()
+  expect(colors['brand-muted']).toBeUndefined()
+  expect(colors['brand-border']).toBeUndefined()
 })
 
 test('tailwind config does not contain removed neo-brut tokens', () => {
@@ -21,7 +27,6 @@ test('tailwind config does not contain removed neo-brut tokens', () => {
   expect(colors['brand-red']).toBeUndefined()
   expect(colors['brand-yellow']).toBeUndefined()
   expect(colors['brand-blue']).toBeUndefined()
-  expect(colors['brand-purple']).toBeUndefined()
   expect(colors['sky-light']).toBeUndefined()
   expect(colors['sky-mid']).toBeUndefined()
 })

@@ -6,8 +6,8 @@ test('renders card with children', () => {
   expect(screen.getByText('Card content')).toBeInTheDocument()
 })
 
-test('renders green card variant', () => {
-  render(<Card variant="green"><p>Green</p></Card>)
-  const wrapper = screen.getByText('Green').parentElement
-  expect(wrapper?.className).toContain('bg-brand-green')
+test('renders purple card variant', () => {
+  render(<Card variant="purple"><p>Purple</p></Card>)
+  const wrapper = screen.getByText('Purple').parentElement
+  expect(wrapper?.className).toContain('bg-c-purple')
 })

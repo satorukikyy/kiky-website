@@ -2,12 +2,12 @@ export const personalInfo = {
   name: 'Rizky Aditya',
   nickname: 'Kiky',
   title: 'GRC Analyst & Security Researcher',
-  company: 'Whitesec.id',
+  company: 'Whitesec ID',
   email: 'rizky@nexorasec.asia',
   whatsapp: '+62 878 8986 7060',
   whatsappNumber: '6287889867060',
-  bio: "I'm Rizky Aditya, a GRC Analyst & Security Researcher based in Indonesia with 2+ years of experience in information security governance and vulnerability assessment. Currently working at Whitesec.id, specializing in ISO 27001 & ISO 27701 implementation, internal auditing, and web/mobile penetration testing.",
-  shortBio: "GRC Analyst & Security Researcher at Whitesec.id, specializing in ISO 27001/27701 governance and web/mobile penetration testing.",
+  bio: "I'm Rizky Aditya, a GRC Analyst & Security Researcher based in Indonesia with 2+ years of experience in information security governance and vulnerability assessment. Currently working at Whitesec ID, specializing in ISO 27001 & ISO 27701 implementation, internal auditing, and web/mobile penetration testing.",
+  shortBio: "GRC Analyst & Security Researcher at Whitesec ID, specializing in ISO 27001/27701 governance and web/mobile penetration testing.",
   socials: {
     linkedin: 'https://www.linkedin.com/in/onerrorkx/',
     github: 'https://github.com/satorukikyy',
@@ -28,14 +28,34 @@ export type ExperienceEntry = {
 
 export const experience: ExperienceEntry[] = [
   {
-    role: 'GRC Analyst',
-    company: 'Whitesec.id',
+    role: 'IT GRC Consultant & Penetration Tester',
+    company: 'Whitesec ID (PT Topi Putih Siberindo)',
     location: 'Indonesia',
     startYear: 2024,
     endYear: null,
     description:
-      'Leading ISO 27001 and ISO 27701 implementation projects for clients across various industries. Conducting gap analysis, policy & procedure writing, risk assessments, and internal audits. Also performing web application and mobile penetration testing for client security assessments.',
-    tags: ['ISO 27001', 'ISO 27701', 'Gap Analysis', 'Internal Audit', 'Policy Writing', 'VAPT'],
+      'Helping organizations strengthen cybersecurity posture through governance, risk management, compliance initiatives, and technical security assessments. Building audit-ready security programs while validating controls through practical testing.',
+    tags: ['ISO/IEC 27001:2022', 'ISO/IEC 27701', 'GRC', 'VAPT', 'Risk Assessment', 'Internal Audit', 'OWASP', 'UU PDP'],
+  },
+  {
+    role: 'Security Engineer',
+    company: 'Defenxor (PT Defender Nusa Semesta)',
+    location: 'Indonesia',
+    startYear: 2023,
+    endYear: 2024,
+    description:
+      'Worked on security monitoring and security operations initiatives, supporting the deployment and optimization of enterprise SIEM environments for client organizations.',
+    tags: ['Wazuh', 'ELK Stack', 'SIEM', 'Security Monitoring', 'Linux', 'Threat Detection'],
+  },
+  {
+    role: 'IT Support Intern',
+    company: 'Faculty of Mathematics and Natural Sciences, University of Indonesia',
+    location: 'Indonesia',
+    startYear: 2022,
+    endYear: 2022,
+    description:
+      'Supported endpoint management and infrastructure operations within the university laboratory environment.',
+    tags: ['Windows', 'Microsoft 365', 'Network Deployment', 'IT Support'],
   },
 ]
 
@@ -69,25 +89,24 @@ export const education: EducationEntry[] = [
 export type Certification = {
   name: string
   issuer: string
-  color: string
+  category: 'iso' | 'security' | 'cloud'
+  featured?: boolean
 }
 
 export const certifications: Certification[] = [
-  {
-    name: 'ISO 27001 Lead Auditor',
-    issuer: 'International',
-    color: 'brand-blue',
-  },
-  {
-    name: 'ISO 27701 Lead Auditor',
-    issuer: 'International',
-    color: 'brand-purple',
-  },
-  {
-    name: 'Certified Bug Bounty Masterclass',
-    issuer: 'Wiz',
-    color: 'brand-green',
-  },
+  // ISO/IEC Management Systems — featured on homepage
+  { name: 'ISO 27001:2022 Lead Auditor',  issuer: 'Mastermind Assurance', category: 'iso',      featured: true },
+  { name: 'ISO 27701:2025 Lead Auditor',  issuer: 'Mastermind Assurance', category: 'iso',      featured: true },
+  { name: 'ISO 42001:2023 Lead Auditor',  issuer: 'Mastermind Assurance', category: 'iso',      featured: true },
+  // Security & Professional
+  { name: 'Certified in Cybersecurity',   issuer: 'ISC2',                 category: 'security', featured: true },
+  { name: 'Student Summit 2025',          issuer: 'ISACA',                category: 'security' },
+  { name: 'Ethical Hacker',               issuer: 'Cisco',                category: 'security' },
+  { name: 'Bug Bounty Masterclass',       issuer: 'Wiz',                  category: 'security' },
+  { name: 'OWASP Top 10 2025',            issuer: 'Snyk',                 category: 'security' },
+  // Cloud & Technical
+  { name: 'Cloud Technical Essentials',   issuer: 'AWS',                  category: 'cloud' },
+  { name: 'Cybersecurity Professional',   issuer: 'Google',               category: 'cloud' },
 ]
 
 export type Service = {
@@ -130,51 +149,74 @@ export const services: Service[] = [
   },
 ]
 
-export type Project = {
-  id: string
-  client: string
-  scope: string
+export type GRCClient = {
+  name: string
   year: number
-  tags: string[]
-  status: 'completed' | 'ongoing'
+  logo?: string
 }
 
-export const vaptProjects: Project[] = [
+export type GRCCategory = {
+  id: string
+  label: string
+  shortLabel: string
+  clients: GRCClient[]
+}
+
+export const grcCategories: GRCCategory[] = [
   {
-    id: 'vapt-1',
-    client: 'Client A (Confidential)',
-    scope: 'Web Application Penetration Testing',
-    year: 2025,
-    tags: ['Web App', 'OWASP Top 10', 'API Security'],
-    status: 'completed',
+    id: 'implementation',
+    label: 'ISO/IEC 27001 Implementation & ISMS Development',
+    shortLabel: 'ISO 27001 Implementation',
+    clients: [
+      { name: 'PT Pallav Kredit Makmur', year: 2024 },
+      { name: 'PT Navios Evolusi Solusindo', year: 2025 },
+      { name: 'PT Covena Teknologi Global', year: 2025 },
+      { name: 'PT Omnia Teknologi Indonesia', year: 2026 },
+      { name: 'PT Prima Sistem Informasi', year: 2026 },
+      { name: 'PT Arta MediaTek Transformasi', year: 2026 },
+      { name: 'PT Inovasi Digital Untuk Transformasi', year: 2026 },
+      { name: 'PT Mahardika Teknotama Integrasi', year: 2026 },
+      { name: 'PT Berlian Sistem Informasi', year: 2026 },
+    ],
   },
   {
-    id: 'vapt-2',
-    client: 'Client B (Confidential)',
-    scope: 'Mobile Application Penetration Testing',
-    year: 2025,
-    tags: ['Android', 'iOS', 'Mobile Security'],
-    status: 'completed',
+    id: 'surveillance',
+    label: 'Surveillance Audit & Compliance Review',
+    shortLabel: 'Surveillance Audit',
+    clients: [
+      { name: 'PT Autopedia Sukses Lestari', year: 2025 },
+      { name: 'PT JBA Indonesia', year: 2025 },
+      { name: 'PT Manpro Teknologi Indonesia', year: 2025 },
+    ],
+  },
+  {
+    id: 'assessment',
+    label: 'Security Compliance Assessment',
+    shortLabel: 'Compliance Assessment',
+    clients: [
+      { name: 'PT Solusi Dwi Satya', year: 2026 },
+    ],
   },
 ]
 
-export const grcProjects: Project[] = [
-  {
-    id: 'grc-1',
-    client: 'Client C (Confidential)',
-    scope: 'ISO 27001 Gap Analysis & Implementation',
-    year: 2024,
-    tags: ['ISO 27001', 'Gap Analysis', 'ISMS'],
-    status: 'completed',
-  },
-  {
-    id: 'grc-2',
-    client: 'Client D (Confidential)',
-    scope: 'ISO 27701 Privacy Implementation',
-    year: 2025,
-    tags: ['ISO 27701', 'Privacy', 'PIMS'],
-    status: 'completed',
-  },
+export type VAPTClient = {
+  name: string
+  year: number
+  logo?: string
+}
+
+export const vaptClients: VAPTClient[] = [
+  { name: 'PT Manpro Teknologi Indonesia', year: 2025 },
+  { name: 'PT Prima Sistem Informasi', year: 2026 },
+  { name: 'PT Good Doctor Technology Indonesia', year: 2026 },
+  { name: 'PT Prime Analytics Indonesia', year: 2026 },
+  { name: 'PT Inovasi Digital Untuk Transformasi', year: 2026 },
+  { name: 'PT Arta MediaTek Transformasi', year: 2026 },
+  { name: 'PT Pupuk Iskandar Muda', year: 2026 },
+  { name: 'PT Mahardika Teknotama Integrasi', year: 2026 },
+  { name: 'PT Asuransi Jiwa Reliance Indonesia', year: 2026 },
+  { name: 'PT Hutama Karya Infrastruktur', year: 2026 },
+  { name: 'PT Inspiro', year: 2026 },
 ]
 
 export const marqueeItems = [

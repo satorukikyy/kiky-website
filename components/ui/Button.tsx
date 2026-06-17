@@ -20,8 +20,8 @@ export default function Button({
 }: ButtonProps) {
   const base =
     variant === 'primary'
-      ? 'bg-brand-green text-white font-heading font-bold text-sm px-7 py-3 rounded-[10px] inline-block transition-opacity hover:opacity-90 active:scale-[0.98]'
-      : 'bg-white border border-brand-border text-brand-text font-heading font-semibold text-sm px-7 py-3 rounded-[10px] inline-block transition-colors hover:bg-brand-soft active:scale-[0.98]'
+      ? 'bg-c-purple text-white font-body font-bold text-sm px-7 py-3 rounded-[10px] inline-block transition-opacity hover:opacity-90 active:scale-[0.98]'
+      : 'bg-white border border-c-border text-c-text font-body font-semibold text-sm px-7 py-3 rounded-[10px] inline-block transition-colors hover:bg-c-purple-light active:scale-[0.98]'
 
   const cls = `${base} cursor-pointer ${className}`
 
