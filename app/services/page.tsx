@@ -1,92 +1,66 @@
-import PageHero from '@/components/ui/PageHero'
+import type { Metadata } from 'next'
 import { services } from '@/lib/data'
 import Link from 'next/link'
+import { personalInfo } from '@/lib/data'
+
+export const metadata: Metadata = {
+  title: 'Services',
+  description: 'ISO/IEC 27001 GRC consulting and Vulnerability Assessment & Penetration Testing services.',
+}
 
 export default function ServicesPage() {
   return (
-    <div className="pt-[60px]">
-      <PageHero
-        tag="Services"
-        title="What I can do for you."
-        subtitle="Professional security services for businesses that take information security seriously."
-      />
+    <div className="max-w-[720px] mx-auto px-6 pt-28 pb-24">
 
-      <div className="max-w-[1120px] mx-auto px-5 pb-20 space-y-14">
+      <h1 className="font-body font-bold text-[36px] md:text-[44px] leading-[1.1] tracking-[-1px] text-c-text mb-12">
+        Services.
+      </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {services.map((service, i) => (
-            <div
-              key={service.id}
-              className={`rounded-[20px] p-8 border flex flex-col ${
-                i === 1
-                  ? 'bg-brand-green border-brand-green'
-                  : 'bg-white border-brand-border'
-              }`}
-            >
-              <p className={`text-[48px] font-heading font-black tracking-[-2px] leading-none mb-4 ${
-                i === 1 ? 'text-white/15' : 'text-[#E8F0E9]'
-              }`}>
-                0{i + 1}
-              </p>
-              <p className={`section-tag mb-2 ${i === 1 ? 'text-white/60' : ''}`}>
-                {service.id.toUpperCase()}
-              </p>
-              <h2 className={`font-heading font-black text-[22px] leading-[1.25] tracking-tight mb-3 ${
-                i === 1 ? 'text-white' : 'text-brand-text'
-              }`}>
-                {service.title}
-              </h2>
-              <p className={`text-sm leading-[1.75] mb-6 ${i === 1 ? 'text-white/80' : 'text-brand-muted'}`}>
-                {service.description}
-              </p>
-
-              <div className="space-y-2.5 mb-6">
-                {service.items.map((item) => (
-                  <div key={item} className="flex items-center gap-3">
-                    <span className={`w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 text-[10px] font-bold ${
-                      i === 1 ? 'bg-white/20 text-white' : 'bg-brand-green text-white'
-                    }`}>
-                      ✓
-                    </span>
-                    <span className={`text-sm font-body ${i === 1 ? 'text-white/90' : 'text-brand-text'}`}>
-                      {item}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              <Link
-                href="/contact"
-                className={`mt-auto inline-block text-center font-heading font-bold text-sm px-6 py-3 rounded-[10px] transition-opacity hover:opacity-90 ${
-                  i === 1
-                    ? 'bg-white text-brand-green'
-                    : 'bg-brand-green text-white'
-                }`}
-              >
-                Get a Quote →
-              </Link>
+      <div className="space-y-16">
+        {services.map((service, i) => (
+          <div key={service.id}>
+            <div className="flex items-baseline gap-4 mb-4">
+              <span className="font-mono text-[13px] text-c-subtle">{String(i + 1).padStart(2, '0')}</span>
+              <span className="font-mono text-[12px] text-c-purple">{service.id}</span>
             </div>
-          ))}
-        </div>
+            <h2 className="font-body font-semibold text-[20px] text-c-text tracking-tight mb-3">
+              {service.title}
+            </h2>
+            <p className="font-body text-[15px] text-c-muted leading-[1.75] mb-6">
+              {service.description}
+            </p>
+            <ul className="space-y-2">
+              {service.items.map((item) => (
+                <li key={item} className="font-body text-[14px] text-c-muted">
+                  · {item}
+                </li>
+              ))}
+            </ul>
+            {i < services.length - 1 && (
+              <div className="border-t border-c-border mt-16" />
+            )}
+          </div>
+        ))}
+      </div>
 
-        {/* CTA */}
-        <div className="bg-brand-soft border border-brand-border-soft rounded-[24px] px-10 py-12 text-center">
-          <p className="section-tag mb-3">Ready to Start?</p>
-          <h3 className="font-heading font-black text-[28px] tracking-tight text-brand-text mb-3">
-            Let&apos;s discuss your security needs.
-          </h3>
-          <p className="text-brand-muted text-sm max-w-md mx-auto mb-6">
-            Reach out via WhatsApp or email and I&apos;ll get back to you within 24 hours.
-          </p>
-          <Link
-            href="/contact"
-            className="bg-brand-green text-white font-heading font-bold text-sm px-8 py-3.5 rounded-[10px] hover:opacity-90 transition-opacity inline-block"
+      <div className="border-t border-c-border mt-16 pt-16">
+        <p className="font-body text-[15px] text-c-muted mb-4">
+          Ready to start? Reach out and I&apos;ll respond within 24 hours.
+        </p>
+        <div className="flex flex-wrap gap-x-5 gap-y-2 font-mono text-[13px]">
+          <a
+            href={`mailto:${personalInfo.email}`}
+            className="text-c-purple hover:text-c-purple-hover transition-colors"
           >
-            Contact Me →
+            {personalInfo.email}
+          </a>
+          <span className="text-c-border">·</span>
+          <Link href="/contact" className="text-c-muted hover:text-c-text transition-colors">
+            Contact form →
           </Link>
         </div>
-
       </div>
+
     </div>
   )
 }
