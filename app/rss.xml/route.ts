@@ -1,3 +1,5 @@
+export const runtime = 'edge'
+
 import { vaptClients, grcCategories, secEngCategories, personalInfo } from '@/lib/data'
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://onerrorkx.pages.dev'
