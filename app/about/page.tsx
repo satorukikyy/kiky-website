@@ -58,22 +58,25 @@ export default function AboutPage() {
         <p className="font-mono text-[13px] text-c-subtle mb-6">// introduction</p>
         <div className="space-y-4 font-body text-[15px] text-c-muted leading-[1.75]">
           <p>
-            I&apos;m Rizky Aditya, a Cybersecurity Consultant specializing in{' '}
-            <span className="text-c-text font-semibold">Governance, Risk &amp; Compliance (GRC)</span>{' '}
-            and{' '}
-            <span className="text-c-text font-semibold">Offensive Security</span>.
-            Based in Indonesia, I help organizations strengthen their security posture by combining
-            rigorous governance frameworks with practical, hands-on technical assessments.
+            I&apos;m Rizky Aditya, a cybersecurity professional based in South Jakarta, Indonesia,
+            working across{' '}
+            <span className="text-c-text font-semibold">Governance, Risk &amp; Compliance (GRC)</span>,{' '}
+            <span className="text-c-text font-semibold">Offensive Security</span>, and{' '}
+            <span className="text-c-text font-semibold">Security Operations</span>.
+            I help organizations build security programs that hold up under audit and under attack.
           </p>
           <p>
-            My work spans ISO/IEC 27001 and 27701 implementation, internal auditing, risk assessment,
-            and web/mobile penetration testing — across technology, finance, and critical infrastructure.
-            I hold Lead Auditor certifications in ISO 27001, 27701, and 42001, alongside ISC2 CC and
-            several other professional credentials.
+            On the governance side, I deliver ISO/IEC 27001, 27701, and 42001 consulting — from gap
+            analysis through certification — alongside risk assessments, SoA development, and UU PDP
+            compliance advisory. On the offensive side, I conduct web application, mobile, and API
+            penetration tests following OWASP and PTES methodology. On the blue team side, I have
+            hands-on experience deploying and operating SIEM environments, building detection rules,
+            and coordinating incident response for clients in banking, healthcare, and critical infrastructure.
           </p>
           <p>
-            Currently working full-time at Whitesec ID, contributing to 24+ security engagements and
-            helping clients build audit-ready programs that deliver measurable risk reduction.
+            I hold Lead Auditor certifications in ISO 27001, 27701, and 42001 from Mastermind Assurance,
+            alongside ISC2 Certified in Cybersecurity and several other professional credentials.
+            Currently contributing to 24+ engagements at Whitesec ID.
           </p>
         </div>
       </section>

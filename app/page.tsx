@@ -1,8 +1,9 @@
 import HeroSection from '@/components/sections/HeroSection'
 import Link from 'next/link'
-import { personalInfo, services, vaptClients, grcCategories } from '@/lib/data'
+import { personalInfo, services, vaptClients, grcCategories, secEngCategories } from '@/lib/data'
 
 const allGRCClients = grcCategories.flatMap(c => c.clients)
+const allSecEngClients = secEngCategories.flatMap(c => c.clients)
 
 export default function HomePage() {
   return (
@@ -30,17 +31,13 @@ export default function HomePage() {
                 {String(i + 1).padStart(2, '0')}
               </span>
               <Link
-                href={`/services`}
+                href="/services"
                 className="font-body text-[15px] text-c-text hover:text-c-purple transition-colors"
               >
                 {s.title}
               </Link>
             </li>
           ))}
-          <li className="flex items-start gap-4">
-            <span className="font-mono text-[13px] text-c-subtle w-6 flex-shrink-0">03</span>
-            <span className="font-body text-[15px] text-c-text">Bug Bounty Hunting</span>
-          </li>
         </ol>
       </section>
 
@@ -63,6 +60,13 @@ export default function HomePage() {
           {allGRCClients.slice(0, 3).map((client) => (
             <div key={client.name} className="flex items-baseline gap-4">
               <span className="font-mono text-[12px] text-c-purple w-10 flex-shrink-0">grc</span>
+              <span className="font-body text-[14px] text-c-text flex-1">{client.name}</span>
+              <span className="font-mono text-[12px] text-c-subtle">{client.year}</span>
+            </div>
+          ))}
+          {allSecEngClients.slice(0, 2).map((client) => (
+            <div key={client.name} className="flex items-baseline gap-4">
+              <span className="font-mono text-[12px] text-c-purple w-10 flex-shrink-0">sec</span>
               <span className="font-body text-[14px] text-c-text flex-1">{client.name}</span>
               <span className="font-mono text-[12px] text-c-subtle">{client.year}</span>
             </div>

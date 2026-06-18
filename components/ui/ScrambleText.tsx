@@ -16,6 +16,7 @@ export default function ScrambleText({
   duration?: number
 }) {
   const [output, setOutput] = useState(text)
+  const [rev, setRev] = useState(0)
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const startedAt = useRef<number | null>(null)
 
@@ -65,7 +66,16 @@ export default function ScrambleText({
       clearTimeout(kickoff)
       if (timer.current) clearTimeout(timer.current)
     }
-  }, [text, delay, duration])
+  }, [text, delay, duration, rev])
 
-  return <span className={className}>{output}</span>
+  return (
+    <span
+      className={className}
+      onClick={() => setRev(v => v + 1)}
+      style={{ cursor: 'pointer' }}
+      title="click to replay"
+    >
+      {output}
+    </span>
+  )
 }

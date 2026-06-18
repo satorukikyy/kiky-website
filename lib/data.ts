@@ -1,13 +1,13 @@
 export const personalInfo = {
   name: 'Rizky Aditya',
   nickname: 'Aditya',
-  title: 'GRC Analyst & Security Researcher',
+  title: 'GRC Consultant · Penetration Tester · Security Engineer',
   company: 'Whitesec ID',
   email: 'rizky@nexorasec.asia',
   whatsapp: '+62 878 8986 7060',
   whatsappNumber: '6287889867060',
-  bio: "I'm Rizky Aditya, a GRC Analyst & Security Researcher based in Indonesia with 2+ years of experience in information security governance and vulnerability assessment. Currently working at Whitesec ID, specializing in ISO 27001 & ISO 27701 implementation, internal auditing, and web/mobile penetration testing.",
-  shortBio: "GRC Analyst & Security Researcher at Whitesec ID, specializing in ISO 27001/27701 governance and web/mobile penetration testing.",
+  bio: "I'm Rizky Aditya, a cybersecurity professional based in Indonesia with experience across GRC consulting, penetration testing, and security operations. Currently at Whitesec ID, delivering 24+ engagements spanning ISO 27001/27701/42001 implementation, web/mobile VAPT, SOC monitoring, and incident management.",
+  shortBio: "GRC Consultant, Penetration Tester & Security Engineer at Whitesec ID — ISO 27001/27701/42001 Lead Auditor.",
   socials: {
     linkedin: 'https://www.linkedin.com/in/onerrorkx/',
     github: 'https://github.com/satorukikyy',
@@ -144,20 +144,44 @@ export const services: Service[] = [
     items: [
       'Web Application Penetration Testing',
       'Mobile Application Penetration Testing',
-      'Vulnerability Assessment',
-      'Security Review & Reporting',
+      'API Security Testing',
+      'Vulnerability Assessment & Reporting',
     ],
   },
   {
     id: 'grc',
-    title: 'Security Assessment & Compliance',
+    title: 'GRC Consulting & Compliance',
     description:
-      'End-to-end information security governance support — from assessing your current posture to achieving and maintaining compliance with international standards.',
+      'End-to-end information security governance support — from assessing your current posture to achieving and maintaining compliance with ISO/IEC standards and regulatory requirements.',
     items: [
-      'Gap Analysis (ISO 27001 / ISO 27701)',
-      'Policy & Procedure Writing',
-      'Internal Audit',
-      'Risk Assessment & Treatment',
+      'ISO/IEC 27001 / 27701 / 42001 Implementation',
+      'Gap Analysis & Risk Assessment',
+      'Security Policy & SoA Development',
+      'Internal Audit & Certification Support',
+    ],
+  },
+  {
+    id: 'seceng',
+    title: 'Security Operations & Blue Team',
+    description:
+      'Hands-on security operations support — deploying and tuning detection capabilities, monitoring security events, and managing incidents to reduce dwell time and improve response posture.',
+    items: [
+      'SIEM Deployment & Tuning (Wazuh / ELK)',
+      'Threat Detection Rule Development',
+      'SOC Monitoring & Alert Triage',
+      'Incident Management & Response',
+    ],
+  },
+  {
+    id: 'bugbounty',
+    title: 'Bug Bounty Hunting',
+    description:
+      'Independent vulnerability research on public bug bounty programs. Focused on web application logic flaws, authentication bypasses, and high-impact business-logic vulnerabilities.',
+    items: [
+      'Web Application Vulnerability Research',
+      'Business Logic & Auth Bypass Testing',
+      'Responsible Disclosure',
+      'Report Writing & PoC Development',
     ],
   },
 ]

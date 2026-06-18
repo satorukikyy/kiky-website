@@ -4,19 +4,19 @@ import { useState } from 'react'
 import { personalInfo } from '@/lib/data'
 
 const serviceOptions = [
-  { value: 'grc',     label: 'GRC Services — ISO/IEC 27001 / 27701' },
   { value: 'vapt',    label: 'VAPT — Web / Mobile Penetration Testing' },
-  { value: 'audit',   label: 'Internal Audit & Compliance Review' },
-  { value: 'consult', label: 'Security Consultation' },
+  { value: 'grc',     label: 'GRC Consulting — ISO/IEC 27001 / 27701 / 42001' },
+  { value: 'seceng',  label: 'Security Operations — SOC / Incident Management' },
+  { value: 'bugbounty', label: 'Bug Bounty Collaboration' },
   { value: 'other',   label: 'Other / General Inquiry' },
 ]
 
 const serviceLabels: Record<string, string> = {
-  grc:     'GRC Services (ISO/IEC 27001 / 27701)',
-  vapt:    'VAPT / Penetration Testing',
-  audit:   'Internal Audit & Compliance Review',
-  consult: 'Security Consultation',
-  other:   'General Inquiry',
+  vapt:      'VAPT / Penetration Testing',
+  grc:       'GRC Consulting (ISO/IEC 27001 / 27701 / 42001)',
+  seceng:    'Security Operations / Blue Team',
+  bugbounty: 'Bug Bounty Collaboration',
+  other:     'General Inquiry',
 }
 
 const socials = [
@@ -30,11 +30,11 @@ const socials = [
 export default function ContactPage() {
   const [name,    setName]    = useState('')
   const [org,     setOrg]     = useState('')
-  const [service, setService] = useState('grc')
+  const [service, setService] = useState('vapt')
   const [message, setMessage] = useState('')
 
   const waMessage = [
-    `Hello Kiky! I'm ${name}${org ? ` from ${org}` : ''}.`,
+    `Hello, I'm ${name}${org ? ` from ${org}` : ''}.`,
     '',
     `Service: ${serviceLabels[service] ?? service}`,
     '',
@@ -83,7 +83,7 @@ export default function ContactPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             <div>
-              <label className="font-mono text-[11px] text-c-subtle uppercase tracking-[2px] block mb-2">
+              <label className="font-mono text-[12px] text-c-subtle block mb-2">
                 Name <span className="text-c-purple">*</span>
               </label>
               <input
@@ -95,7 +95,7 @@ export default function ContactPage() {
               />
             </div>
             <div>
-              <label className="font-mono text-[11px] text-c-subtle uppercase tracking-[2px] block mb-2">
+              <label className="font-mono text-[12px] text-c-subtle block mb-2">
                 Organization
               </label>
               <input
@@ -109,7 +109,7 @@ export default function ContactPage() {
           </div>
 
           <div>
-            <label className="font-mono text-[11px] text-c-subtle uppercase tracking-[2px] block mb-2">
+            <label className="font-mono text-[12px] text-c-subtle block mb-2">
               Service
             </label>
             <select
@@ -124,7 +124,7 @@ export default function ContactPage() {
           </div>
 
           <div>
-            <label className="font-mono text-[11px] text-c-subtle uppercase tracking-[2px] block mb-2">
+            <label className="font-mono text-[12px] text-c-subtle block mb-2">
               Message <span className="text-c-purple">*</span>
             </label>
             <textarea
