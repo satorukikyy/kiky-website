@@ -1,3 +1,5 @@
+export const runtime = 'edge'
+
 import type { MetadataRoute } from 'next'
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://onerrorkx.pages.dev'
