@@ -9,9 +9,18 @@ export default function Footer() {
           {personalInfo.nickname.toLowerCase()}
           <span className="text-c-purple">.</span>
         </Link>
-        <p className="font-mono text-[12px] text-c-subtle">
-          © {new Date().getFullYear()} {personalInfo.name}
-        </p>
+        <div className="flex items-center gap-4">
+          <a
+            href="/rss.xml"
+            className="font-mono text-[11px] text-c-subtle hover:text-c-purple transition-colors"
+            title="RSS Feed"
+          >
+            rss
+          </a>
+          <p className="font-mono text-[12px] text-c-subtle">
+            © {new Date().getFullYear()} {personalInfo.name}
+          </p>
+        </div>
       </div>
     </footer>
   )
