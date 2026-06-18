@@ -63,7 +63,10 @@ export default function BackgroundPage() {
                 </span>
               </div>
               <p className="font-mono text-[13px] text-c-purple mb-1">{edu.degree}</p>
-              <p className="font-body text-[14px] text-c-muted">{edu.field}</p>
+              <p className="font-body text-[14px] text-c-muted mb-3">{edu.field}</p>
+              {edu.description && (
+                <p className="font-body text-[14px] text-c-muted leading-[1.75] mb-3">{edu.description}</p>
+              )}
               {edu.achievement && (
                 <p className="font-mono text-[13px] text-c-muted mt-3">
                   <span className="text-c-purple">↳</span> {edu.achievement.replace(/^🥇\s*/, '')}

@@ -84,6 +84,7 @@ export type EducationEntry = {
   field: string
   startYear: number
   endYear: number | null
+  description?: string
   achievement?: string
 }
 
@@ -94,6 +95,8 @@ export const education: EducationEntry[] = [
     field: 'Teknik Informatika (Informatics Engineering)',
     startYear: 2025,
     endYear: null,
+    description:
+      'Focused on offensive security, governance, and emerging technology — covering penetration testing methodology, GRC frameworks, DevSecOps practices, and AI security.',
   },
   {
     institution: 'SMK Harapan Bangsa',
@@ -101,6 +104,8 @@ export const education: EducationEntry[] = [
     field: 'Teknik Komputer & Jaringan (Computer & Networking)',
     startYear: 2020,
     endYear: 2023,
+    description:
+      'Grounded in computer networking fundamentals — routing, switching, network infrastructure, and hands-on lab work with Cisco and Mikrotik equipment.',
     achievement: '🥇 1st Place — Mikrotik Network Competition (50+ participants)',
   },
 ]
