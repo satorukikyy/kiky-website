@@ -13,7 +13,7 @@ export default function HeroSection() {
         {personalInfo.title}
       </p>
       <p className="font-mono text-[13px] text-c-subtle mb-8">
-        Whitesec ID · Bandung, Indonesia
+        Whitesec ID · South Jakarta, Indonesia
       </p>
 
       <p className="font-body text-[15px] text-c-muted leading-[1.75] max-w-[560px] mb-8">

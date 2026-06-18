@@ -7,12 +7,22 @@ export const metadata: Metadata = {
 }
 
 const grcAreas = [
-  'ISO/IEC 27001:2022 Implementation & Audit',
-  'ISO/IEC 27701 Privacy Management',
-  'Risk Assessment & Risk Treatment',
-  'Internal Audit Support',
-  'Security Policy Development',
-  'Third-Party Risk Management',
+  'ISO/IEC 27001:2022 Implementation & Certification',
+  'ISO/IEC 27701 Privacy Information Management',
+  'ISO/IEC 42001 AI Management System',
+  'Gap Analysis & Readiness Assessment',
+  'Risk Assessment & Risk Treatment Plan',
+  'Statement of Applicability (SoA) Development',
+  'Security Policy & Procedure Development',
+  'Internal Audit Support & Evidence Preparation',
+  'Incident Management & Response Planning',
+  'Business Continuity & Disaster Recovery Planning',
+  'Third-Party & Supplier Risk Management',
+  'Data Protection Impact Assessment (DPIA)',
+  'UU PDP Compliance Advisory',
+  'Security Awareness Program Development',
+  'Asset Management & Information Classification',
+  'Compliance Monitoring & Continuous Improvement',
 ]
 
 const offensiveAreas = [
