@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://rizkyaditya.dev'
+const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://onerrorkx.pages.dev'
 
 const routes = [
   { path: '',              priority: 1.0,  freq: 'monthly'  },
