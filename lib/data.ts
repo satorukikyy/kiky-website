@@ -210,6 +210,26 @@ export const grcCategories: GRCCategory[] = [
       { name: 'PT Solusi Dwi Satya', year: 2026 },
     ],
   },
+  {
+    id: 'soc',
+    label: 'Security Operations Center (SOC) Monitoring',
+    shortLabel: 'SOC Monitoring',
+    clients: [
+      { name: 'PT Prodia Widyahusada', year: 2023 },
+      { name: 'PT Kalbe Farma', year: 2023 },
+      { name: 'PT Bank Hibank Indonesia', year: 2023 },
+      { name: 'PT Bank Saqu Indonesia', year: 2023 },
+      { name: 'PT Jakarta International Container Terminal', year: 2023 },
+    ],
+  },
+  {
+    id: 'incident',
+    label: 'Incident Management & Response',
+    shortLabel: 'Incident Management',
+    clients: [
+      { name: 'PT Bank Resona Perdania', year: 2024 },
+    ],
+  },
 ]
 
 export type VAPTClient = {
