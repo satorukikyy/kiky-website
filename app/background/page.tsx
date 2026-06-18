@@ -27,8 +27,18 @@ export default function BackgroundPage() {
                 </span>
               </div>
               <p className="font-mono text-[13px] text-c-purple mb-3">{exp.company}</p>
-              <p className="font-body text-[14px] text-c-muted leading-[1.75]">{exp.description}</p>
-              <div className="flex flex-wrap gap-x-3 gap-y-1 mt-3">
+              <p className="font-body text-[14px] text-c-muted leading-[1.75] mb-4">{exp.description}</p>
+              {exp.highlights && (
+                <ul className="space-y-1.5 mb-4">
+                  {exp.highlights.map((h) => (
+                    <li key={h} className="font-mono text-[12px] text-c-muted flex gap-2">
+                      <span className="text-c-purple flex-shrink-0">·</span>
+                      {h}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <div className="flex flex-wrap gap-x-3 gap-y-1">
                 {exp.tags.map((tag) => (
                   <span key={tag} className="font-mono text-[11px] text-c-subtle">
                     {tag}

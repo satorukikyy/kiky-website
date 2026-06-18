@@ -23,6 +23,7 @@ export type ExperienceEntry = {
   startYear: number
   endYear: number | null
   description: string
+  highlights?: string[]
   tags: string[]
 }
 
@@ -35,6 +36,13 @@ export const experience: ExperienceEntry[] = [
     endYear: null,
     description:
       'Helping organizations strengthen cybersecurity posture through governance, risk management, compliance initiatives, and technical security assessments. Building audit-ready security programs while validating controls through practical testing.',
+    highlights: [
+      'Delivered 24+ security engagements across GRC and VAPT disciplines',
+      'Lead Auditor certified in ISO/IEC 27001:2022, ISO/IEC 27701, and ISO/IEC 42001',
+      'Conducted web application and mobile penetration testing across technology, finance, and healthcare sectors',
+      'Developed ISMS documentation — risk registers, SoA, security policies — mapped to annex A and UU PDP',
+      'Supported clients through ISO 27001 initial certification and surveillance audit cycles',
+    ],
     tags: ['ISO/IEC 27001:2022', 'ISO/IEC 27701', 'GRC', 'VAPT', 'Risk Assessment', 'Internal Audit', 'OWASP', 'UU PDP'],
   },
   {
@@ -45,6 +53,12 @@ export const experience: ExperienceEntry[] = [
     endYear: 2024,
     description:
       'Worked on security monitoring and security operations initiatives, supporting the deployment and optimization of enterprise SIEM environments for client organizations.',
+    highlights: [
+      'Deployed and tuned Wazuh SIEM with ELK Stack for enterprise client environments',
+      'Authored custom threat detection rules across Linux and Windows endpoint telemetry',
+      'Performed log analysis and alert triage to support client SOC teams',
+      'Contributed to internal tooling for incident response and event correlation workflows',
+    ],
     tags: ['Wazuh', 'ELK Stack', 'SIEM', 'Security Monitoring', 'Linux', 'Threat Detection'],
   },
   {
@@ -55,6 +69,11 @@ export const experience: ExperienceEntry[] = [
     endYear: 2022,
     description:
       'Supported endpoint management and infrastructure operations within the university laboratory environment.',
+    highlights: [
+      'Managed Windows and Microsoft 365 lifecycle across laboratory workstations',
+      'Assisted in network deployment, cabling, and switch configuration',
+      'Maintained IT asset inventory and operational documentation',
+    ],
     tags: ['Windows', 'Microsoft 365', 'Network Deployment', 'IT Support'],
   },
 ]

@@ -13,9 +13,15 @@ export default function GrcPage() {
       <h1 className="font-body font-bold text-[36px] md:text-[44px] leading-[1.1] tracking-[-1px] text-c-text mb-12">
         GRC & Compliance.
       </h1>
+      <p className="font-body text-[15px] text-c-muted leading-[1.75] mb-4">
+        GRC engagements spanning ISO/IEC 27001, ISO/IEC 27701, and ISO/IEC 42001 consulting — from
+        initial gap analysis through to certification readiness and post-certification surveillance.
+        Work includes control mapping to annex A, risk register development, Statement of Applicability
+        preparation, and security policy authoring aligned to UU PDP requirements.
+      </p>
       <p className="font-body text-[15px] text-c-muted leading-[1.75] mb-12">
-        ISO/IEC 27001 implementation, surveillance audit, and compliance assessment for organizations
-        across regulated industries.
+        Clients are primarily organizations in regulated industries — financial services, healthcare,
+        technology, and government — seeking audit-ready ISMS programs with measurable risk reduction.
       </p>
       <div className="space-y-10">
         {grcCategories.map((cat) => (

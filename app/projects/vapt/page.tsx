@@ -13,9 +13,15 @@ export default function VaptPage() {
       <h1 className="font-body font-bold text-[36px] md:text-[44px] leading-[1.1] tracking-[-1px] text-c-text mb-12">
         Penetration Testing.
       </h1>
+      <p className="font-body text-[15px] text-c-muted leading-[1.75] mb-4">
+        Vulnerability assessments and penetration tests covering web applications, mobile apps, and APIs.
+        Each engagement follows a structured attack lifecycle — reconnaissance, enumeration, exploitation,
+        and post-exploitation — aligned to OWASP Testing Guide and PTES standards.
+      </p>
       <p className="font-body text-[15px] text-c-muted leading-[1.75] mb-12">
-        Web application, mobile application, and API security assessments across technology, finance,
-        and critical infrastructure sectors.
+        Deliverables include a detailed technical report with CVSS-rated findings, reproduction steps,
+        and remediation guidance tailored to the client&apos;s stack and team maturity.
+        Clients span technology, fintech, healthcare, and critical infrastructure sectors.
       </p>
       <div className="space-y-2">
         {vaptClients.map((client) => (
