@@ -20,11 +20,10 @@ const serviceLabels: Record<string, string> = {
 }
 
 const socials = [
-  { label: 'Email',     href: `mailto:${personalInfo.email}`,          value: personalInfo.email },
-  { label: 'WhatsApp',  href: `https://wa.me/${personalInfo.whatsappNumber}`, value: personalInfo.whatsapp },
-  { label: 'LinkedIn',  href: personalInfo.socials.linkedin,            value: 'onerrorkx' },
-  { label: 'GitHub',    href: personalInfo.socials.github,              value: 'satorukikyy' },
-  { label: 'Instagram', href: personalInfo.socials.instagram,           value: '@kxs3c' },
+  { label: 'Email',     href: `mailto:${personalInfo.email}`,  value: personalInfo.email },
+  { label: 'LinkedIn',  href: personalInfo.socials.linkedin,   value: 'onerrorkx' },
+  { label: 'GitHub',    href: personalInfo.socials.github,     value: 'satorukikyy' },
+  { label: 'Instagram', href: personalInfo.socials.instagram,  value: '@kxs3c' },
 ]
 
 export default function ContactPage() {

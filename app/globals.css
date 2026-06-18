@@ -3,7 +3,32 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-c-bg text-c-text font-body antialiased;
   }
+
+  main {
+    animation: pageFadeIn 0.3s ease-out;
+  }
+}
+
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.scramble-cursor {
+  animation: cursorBlink 0.65s step-end infinite;
+  color: #7C3AED;
+  margin-left: 1px;
+  user-select: none;
 }

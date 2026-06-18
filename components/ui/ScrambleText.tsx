@@ -16,8 +16,10 @@ export default function ScrambleText({
   duration?: number
 }) {
   const [output, setOutput] = useState(text)
+  const [cursor, setCursor] = useState(false)
   const [rev, setRev] = useState(0)
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const cursorTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const startedAt = useRef<number | null>(null)
 
   useEffect(() => {
@@ -46,6 +48,8 @@ export default function ScrambleText({
         timer.current = setTimeout(tick, 40)
       } else {
         setOutput(text)
+        setCursor(true)
+        cursorTimer.current = setTimeout(() => setCursor(false), 1800)
       }
     }
 
@@ -65,17 +69,19 @@ export default function ScrambleText({
     return () => {
       clearTimeout(kickoff)
       if (timer.current) clearTimeout(timer.current)
+      if (cursorTimer.current) clearTimeout(cursorTimer.current)
     }
   }, [text, delay, duration, rev])
 
   return (
     <span
       className={className}
-      onClick={() => setRev(v => v + 1)}
+      onClick={() => { setCursor(false); setRev(v => v + 1) }}
       style={{ cursor: 'pointer' }}
       title="click to replay"
     >
       {output}
+      {cursor && <span className="scramble-cursor" aria-hidden="true">|</span>}
     </span>
   )
 }
