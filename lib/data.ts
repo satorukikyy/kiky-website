@@ -210,6 +210,16 @@ export const grcCategories: GRCCategory[] = [
       { name: 'PT Solusi Dwi Satya', year: 2026 },
     ],
   },
+]
+
+export type SecEngCategory = {
+  id: string
+  label: string
+  shortLabel: string
+  clients: GRCClient[]
+}
+
+export const secEngCategories: SecEngCategory[] = [
   {
     id: 'soc',
     label: 'Security Operations Center (SOC) Monitoring',
