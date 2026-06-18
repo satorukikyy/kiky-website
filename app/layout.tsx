@@ -21,7 +21,6 @@ export const metadata: Metadata = {
   authors: [{ name: personalInfo.name }],
   robots: { index: true, follow: true },
   openGraph: { title: siteTitle, description: siteDesc, type: 'website', locale: 'en_US' },
-  verification: { google: '1fdaEy6NrpYoRX6trGc1HBc96cNqE3XYvenerhSibpI' },
   alternates: {
     types: { 'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL ?? 'https://onerrorkx.pages.dev'}/rss.xml` },
   },
@@ -32,6 +31,9 @@ export const viewport = { width: 'device-width', initialScale: 1 }
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={jetbrainsMono.variable}>
+      <head>
+        <meta name="google-site-verification" content="1fdaEy6NrpYoRX6trGc1HBc96cNqE3XYvenerhSibpI" />
+      </head>
       <body>
         <Navbar />
         <main>{children}</main>
