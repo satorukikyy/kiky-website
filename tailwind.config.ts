@@ -18,7 +18,7 @@ const config: Config = {
         'c-purple-light': '#EDE9FE',
       },
       fontFamily: {
-        body: ['var(--font-inter)', 'sans-serif'],
+        body: ['var(--font-mono)', 'monospace'],
         mono: ['var(--font-mono)', 'monospace'],
       },
     },

@@ -58,7 +58,7 @@ export default function ContactPage() {
 
       {/* Contact table */}
       <section className="mb-16">
-        <p className="font-mono text-[11px] text-c-subtle uppercase tracking-[3px] mb-6">Contact</p>
+        <p className="font-mono text-[13px] text-c-subtle mb-6">// contact</p>
         <div className="space-y-3">
           {socials.map((s) => (
             <div key={s.label} className="flex items-baseline gap-6">
@@ -78,7 +78,7 @@ export default function ContactPage() {
 
       {/* Form */}
       <section className="border-t border-c-border pt-16">
-        <p className="font-mono text-[11px] text-c-subtle uppercase tracking-[3px] mb-8">Send a Message</p>
+        <p className="font-mono text-[13px] text-c-subtle mb-8">// send a message</p>
         <div className="space-y-8">
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">

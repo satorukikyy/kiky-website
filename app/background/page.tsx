@@ -16,7 +16,7 @@ export default function BackgroundPage() {
 
       {/* Experience */}
       <section className="mb-16">
-        <p className="font-mono text-[11px] text-c-subtle uppercase tracking-[3px] mb-8">Experience</p>
+        <p className="font-mono text-[13px] text-c-subtle mb-8">// experience</p>
         <div className="space-y-10">
           {experience.map((exp) => (
             <div key={exp.role}>
@@ -42,7 +42,7 @@ export default function BackgroundPage() {
 
       {/* Education */}
       <section className="border-t border-c-border pt-16">
-        <p className="font-mono text-[11px] text-c-subtle uppercase tracking-[3px] mb-8">Education</p>
+        <p className="font-mono text-[13px] text-c-subtle mb-8">// education</p>
         <div className="space-y-10">
           {education.map((edu) => (
             <div key={edu.institution}>

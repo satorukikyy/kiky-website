@@ -34,7 +34,7 @@ export default function AboutPage() {
 
       {/* Bio */}
       <section className="mb-16">
-        <p className="font-mono text-[11px] text-c-subtle uppercase tracking-[3px] mb-6">Introduction</p>
+        <p className="font-mono text-[13px] text-c-subtle mb-6">// introduction</p>
         <div className="space-y-4 font-body text-[15px] text-c-muted leading-[1.75]">
           <p>
             I&apos;m Rizky Aditya, a Cybersecurity Consultant specializing in{' '}
@@ -59,7 +59,7 @@ export default function AboutPage() {
 
       {/* Skills */}
       <section className="border-t border-c-border pt-16 mb-16">
-        <p className="font-mono text-[11px] text-c-subtle uppercase tracking-[3px] mb-6">Areas of Expertise</p>
+        <p className="font-mono text-[13px] text-c-subtle mb-6">// expertise</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <p className="font-mono text-[12px] text-c-purple mb-4">grc</p>
@@ -86,7 +86,7 @@ export default function AboutPage() {
 
       {/* Certifications */}
       <section className="border-t border-c-border pt-16">
-        <p className="font-mono text-[11px] text-c-subtle uppercase tracking-[3px] mb-6">Certifications</p>
+        <p className="font-mono text-[13px] text-c-subtle mb-6">// certifications</p>
         <div className="space-y-2">
           {certifications.map((cert) => (
             <div key={cert.name} className="flex items-baseline gap-4">

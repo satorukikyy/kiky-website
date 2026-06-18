@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function VaptPage() {
   return (
     <div className="max-w-[720px] mx-auto px-6 pt-28 pb-24">
-      <p className="font-mono text-[11px] text-c-subtle uppercase tracking-[3px] mb-4">vapt</p>
+      <p className="font-mono text-[13px] text-c-subtle mb-4">// vapt</p>
       <h1 className="font-body font-bold text-[36px] md:text-[44px] leading-[1.1] tracking-[-1px] text-c-text mb-12">
         Penetration Testing.
       </h1>

@@ -20,7 +20,7 @@ export default function ProjectsPage() {
       {/* VAPT */}
       <section className="mb-16">
         <div className="flex items-baseline justify-between mb-6">
-          <p className="font-mono text-[11px] text-c-subtle uppercase tracking-[3px]">vapt</p>
+          <p className="font-mono text-[13px] text-c-subtle">// vapt</p>
           <Link href="/projects/vapt" className="font-mono text-[12px] text-c-purple hover:text-c-purple-hover transition-colors">
             view all →
           </Link>
@@ -38,7 +38,7 @@ export default function ProjectsPage() {
       {/* GRC */}
       <section className="border-t border-c-border pt-16">
         <div className="flex items-baseline justify-between mb-6">
-          <p className="font-mono text-[11px] text-c-subtle uppercase tracking-[3px]">grc</p>
+          <p className="font-mono text-[13px] text-c-subtle">// grc</p>
           <Link href="/projects/grc" className="font-mono text-[12px] text-c-purple hover:text-c-purple-hover transition-colors">
             view all →
           </Link>

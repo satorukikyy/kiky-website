@@ -11,7 +11,7 @@ export default function HomePage() {
 
       {/* About */}
       <section className="border-t border-c-border pt-16 mt-0 pb-16">
-        <p className="font-mono text-[11px] text-c-subtle uppercase tracking-[3px] mb-6">About</p>
+        <p className="font-mono text-[13px] text-c-subtle mb-6">// about</p>
         <p className="font-body text-[15px] text-c-muted leading-[1.75] mb-4">
           {personalInfo.bio}
         </p>
@@ -22,7 +22,7 @@ export default function HomePage() {
 
       {/* Services */}
       <section className="border-t border-c-border pt-16 pb-16">
-        <p className="font-mono text-[11px] text-c-subtle uppercase tracking-[3px] mb-6">Services</p>
+        <p className="font-mono text-[13px] text-c-subtle mb-6">// services</p>
         <ol className="space-y-3">
           {services.map((s, i) => (
             <li key={s.id} className="flex items-start gap-4">
@@ -47,7 +47,7 @@ export default function HomePage() {
       {/* Projects */}
       <section className="border-t border-c-border pt-16 pb-16">
         <div className="flex items-baseline justify-between mb-6">
-          <p className="font-mono text-[11px] text-c-subtle uppercase tracking-[3px]">Projects</p>
+          <p className="font-mono text-[13px] text-c-subtle">// projects</p>
           <Link href="/projects" className="font-mono text-[12px] text-c-purple hover:text-c-purple-hover transition-colors">
             view all →
           </Link>
