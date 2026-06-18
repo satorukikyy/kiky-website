@@ -1,0 +1,102 @@
+<h2>Pilih gaya section di bawah Hero</h2>
+<p class="subtitle">Bagaimana blok konten (About, Services, Projects) ditampilkan di homepage?</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="bento-grid" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0A0A0A; padding:16px; border-radius:8px; min-height:220px; font-family:sans-serif;">
+      <!-- Marquee bar -->
+      <div style="background:#00C853; color:#000; font-weight:800; font-size:9px; padding:5px 12px; border-radius:4px; margin-bottom:10px; letter-spacing:1px;">GRC ANALYST · PENTESTER · ISO AUDITOR · BUG BOUNTY ·</div>
+      <!-- Bento grid -->
+      <div style="display:grid; grid-template-columns:2fr 1fr; grid-template-rows:auto auto; gap:6px;">
+        <div style="background:#111; border-radius:8px; padding:12px; grid-row:1/2;">
+          <div style="font-size:8px; color:#00C853; letter-spacing:2px; margin-bottom:4px;">ABOUT ME</div>
+          <div style="font-size:13px; font-weight:800; color:#FFF; line-height:1.2;">GRC Analyst &amp;<br>Security Researcher<br>at Whitesec.id</div>
+        </div>
+        <div style="background:#00C853; border-radius:8px; padding:12px;">
+          <div style="font-size:8px; color:#004D1A; letter-spacing:2px; margin-bottom:4px;">SERVICES</div>
+          <div style="font-size:11px; font-weight:800; color:#000;">VAPT<br>+ GRC</div>
+        </div>
+        <div style="background:#1A1A1A; border-radius:8px; padding:10px;">
+          <div style="font-size:8px; color:#555; margin-bottom:3px;">PROJECTS</div>
+          <div style="font-size:10px; color:#FFF; font-weight:700;">10+ Engagements</div>
+        </div>
+        <div style="background:#111; border-radius:8px; padding:10px;">
+          <div style="font-size:8px; color:#00C853; margin-bottom:3px;">CERTS</div>
+          <div style="font-size:9px; color:#FFF;">ISO 27001<br>ISO 27701</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Full Bento Grid</h3>
+      <p>Semua section homepage dalam grid kotak-kotak seperti Wise. Setiap blok = satu konten. <strong>Paling mirip screenshot, modern &amp; compact.</strong></p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="alternating-blocks" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0A0A0A; padding:0; border-radius:8px; min-height:220px; font-family:sans-serif; overflow:hidden;">
+      <!-- Block 1: dark -->
+      <div style="padding:14px 16px; border-bottom:1px solid #1A1A1A;">
+        <div style="font-size:8px; color:#00C853; letter-spacing:2px; margin-bottom:4px;">SERVICES</div>
+        <div style="font-size:14px; font-weight:900; color:#FFF; line-height:1.1;">Security for<br>your business.</div>
+        <div style="display:flex; gap:6px; margin-top:8px;">
+          <div style="background:#111; border-radius:5px; padding:6px 10px; font-size:8px; color:#FFF;">VAPT</div>
+          <div style="background:#111; border-radius:5px; padding:6px 10px; font-size:8px; color:#FFF;">GRC / ISO</div>
+        </div>
+      </div>
+      <!-- Block 2: green -->
+      <div style="background:#00C853; padding:14px 16px; border-bottom:1px solid #009940;">
+        <div style="font-size:8px; color:#004D1A; letter-spacing:2px; margin-bottom:4px;">PROJECTS</div>
+        <div style="font-size:14px; font-weight:900; color:#000; line-height:1.1;">10+ security<br>engagements.</div>
+      </div>
+      <!-- Block 3: dark -->
+      <div style="padding:14px 16px;">
+        <div style="font-size:8px; color:#555; letter-spacing:2px; margin-bottom:4px;">CERTIFICATIONS</div>
+        <div style="display:flex; gap:5px; flex-wrap:wrap;">
+          <div style="border:1px solid #333; color:#FFF; border-radius:4px; padding:3px 7px; font-size:8px;">ISO 27001</div>
+          <div style="border:1px solid #333; color:#FFF; border-radius:4px; padding:3px 7px; font-size:8px;">ISO 27701</div>
+          <div style="border:1px solid #333; color:#FFF; border-radius:4px; padding:3px 7px; font-size:8px;">Bug Bounty</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Alternating Blocks</h3>
+      <p>Section bergantian: dark → green → dark. Setiap warna = satu konten besar. <strong>Seperti Wise bagian bawah, lebih narrative &amp; storytelling.</strong></p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="hybrid" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0A0A0A; padding:0; border-radius:8px; min-height:220px; font-family:sans-serif; overflow:hidden;">
+      <!-- Hero bento mini -->
+      <div style="padding:12px 16px; border-bottom:1px solid #1A1A1A;">
+        <div style="font-size:8px; color:#00C853; margin-bottom:6px; letter-spacing:2px;">ABOUT</div>
+        <div style="display:grid; grid-template-columns:3fr 1fr; gap:6px;">
+          <div style="font-size:11px; font-weight:800; color:#FFF; line-height:1.3;">GRC Analyst &amp; Security<br>Researcher. 2+ Years.</div>
+          <div style="background:#00C853; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:18px;">🛡</div>
+        </div>
+      </div>
+      <!-- Green block -->
+      <div style="background:#00C853; padding:12px 16px; border-bottom:1px solid #009940;">
+        <div style="font-size:8px; color:#004D1A; margin-bottom:4px; letter-spacing:2px;">SERVICES</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:5px;">
+          <div style="background:rgba(0,0,0,0.15); border-radius:5px; padding:6px; font-size:8px; font-weight:800; color:#000;">VAPT</div>
+          <div style="background:rgba(0,0,0,0.15); border-radius:5px; padding:6px; font-size:8px; font-weight:800; color:#000;">GRC / ISO</div>
+        </div>
+      </div>
+      <!-- Projects row -->
+      <div style="padding:12px 16px;">
+        <div style="font-size:8px; color:#555; margin-bottom:5px; letter-spacing:2px;">PROJECTS</div>
+        <div style="display:flex; gap:5px;">
+          <div style="background:#111; border-radius:5px; padding:6px 10px; font-size:8px; color:#FFF; flex:1; text-align:center;">Web Pentest</div>
+          <div style="background:#111; border-radius:5px; padding:6px 10px; font-size:8px; color:#FFF; flex:1; text-align:center;">Mobile</div>
+          <div style="background:#111; border-radius:5px; padding:6px 10px; font-size:8px; color:#FFF; flex:1; text-align:center;">ISO Gap</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Hybrid (Bento + Blocks)</h3>
+      <p>Gabungan keduanya: bento grid untuk About, lalu green block untuk Services, lalu row cards untuk Projects. <strong>Paling fleksibel &amp; informatif.</strong></p>
+    </div>
+  </div>
+
+</div>

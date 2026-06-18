@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homepage Mockup — Kiky Portfolio</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0A0A0A; color: #fff; font-family: 'Segoe UI', system-ui, sans-serif; }
+
+  /* NAV */
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 40px; border-bottom: 1px solid #1a1a1a;
+    position: sticky; top: 0; background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px); z-index: 100;
+  }
+  .nav-logo { font-weight: 900; font-size: 18px; letter-spacing: -0.5px; color: #fff; }
+  .nav-logo span { color: #00C853; }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a { color: #888; font-size: 14px; text-decoration: none; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: #fff; }
+  .nav-cta { background: #00C853; color: #000; font-weight: 700; font-size: 13px; padding: 9px 20px; border-radius: 8px; text-decoration: none; }
+
+  /* HERO */
+  .hero { padding: 80px 40px 60px; max-width: 1100px; margin: 0 auto; }
+  .hero-label { display: inline-flex; align-items: center; gap: 8px; border: 1px solid #1f3d29; background: #0d1f13; color: #00C853; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-bottom: 32px; }
+  .hero-label::before { content: ''; width: 6px; height: 6px; background: #00C853; border-radius: 50%; display: block; }
+  .hero-headline { font-size: clamp(52px, 7vw, 82px); font-weight: 900; line-height: 1.0; letter-spacing: -3px; margin-bottom: 16px; }
+  .hero-headline .accent { color: #00C853; }
+  .hero-sub { color: #666; font-size: 16px; line-height: 1.6; max-width: 440px; margin-bottom: 36px; }
+  .hero-actions { display: flex; gap: 12px; margin-bottom: 48px; }
+  .btn-primary { background: #00C853; color: #000; font-weight: 700; font-size: 14px; padding: 13px 28px; border-radius: 10px; text-decoration: none; }
+  .btn-secondary { border: 1px solid #2a2a2a; color: #fff; font-weight: 600; font-size: 14px; padding: 13px 28px; border-radius: 10px; text-decoration: none; }
+
+  /* BENTO STATS */
+  .bento-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 60px; }
+  .stat-card { background: #111; border: 1px solid #1e1e1e; border-radius: 14px; padding: 20px 22px; }
+  .stat-card.green { background: #00C853; border-color: #00C853; }
+  .stat-card.green .stat-num { color: #000; }
+  .stat-card.green .stat-label { color: #005520; }
+  .stat-num { font-size: 32px; font-weight: 900; letter-spacing: -1px; color: #fff; }
+  .stat-label { font-size: 11px; color: #555; font-weight: 500; margin-top: 2px; text-transform: uppercase; letter-spacing: 1px; }
+
+  /* MARQUEE */
+  .marquee-strip { background: #00C853; overflow: hidden; padding: 14px 0; margin-bottom: 60px; }
+  .marquee-inner { display: flex; gap: 0; white-space: nowrap; }
+  .marquee-item { font-size: 13px; font-weight: 800; color: #000; text-transform: uppercase; letter-spacing: 2px; padding: 0 28px; }
+  .marquee-dot { color: #005520; padding-right: 12px; }
+
+  /* SECTION LABEL */
+  .section-label { font-size: 11px; color: #00C853; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; margin-bottom: 16px; }
+
+  /* BENTO GRID */
+  .bento { max-width: 1100px; margin: 0 auto; padding: 0 40px 80px; }
+  .bento-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 12px; margin-bottom: 12px; }
+  .bento-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+  .bento-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+
+  .bcard { background: #111; border: 1px solid #1e1e1e; border-radius: 18px; padding: 28px; }
+  .bcard.green { background: #00C853; border-color: #00C853; }
+  .bcard.surface { background: #161616; border-color: #222; }
+  .bcard h3 { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 8px; letter-spacing: -0.5px; }
+  .bcard.green h3 { color: #000; }
+  .bcard p { font-size: 14px; color: #666; line-height: 1.6; }
+  .bcard.green p { color: #005520; }
+  .bcard .tag { display: inline-block; background: #1e1e1e; color: #888; font-size: 11px; padding: 4px 10px; border-radius: 6px; margin: 3px 3px 3px 0; font-weight: 500; }
+  .bcard.green .tag { background: rgba(0,0,0,0.15); color: #003d14; }
+
+  .about-card h3 { font-size: 28px; letter-spacing: -1px; line-height: 1.2; margin-bottom: 12px; }
+  .about-card p { max-width: 360px; }
+
+  /* Service cards */
+  .service-icon { font-size: 28px; margin-bottom: 16px; }
+  .service-num { font-size: 48px; font-weight: 900; color: #1e1e1e; letter-spacing: -2px; line-height: 1; margin-bottom: 8px; }
+  .bcard.green .service-num { color: rgba(0,0,0,0.1); }
+
+  /* Project card */
+  .project-badge { display: inline-block; background: #0d1f13; border: 1px solid #1f3d29; color: #00C853; font-size: 10px; padding: 3px 10px; border-radius: 100px; margin-bottom: 10px; font-weight: 600; }
+
+  /* Cert tags */
+  .cert-pill { display: inline-flex; align-items: center; gap: 6px; border: 1px solid #222; color: #fff; font-size: 12px; padding: 8px 16px; border-radius: 100px; margin: 4px; font-weight: 500; }
+  .cert-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: #00C853; }
+
+  /* CTA SECTION */
+  .cta-section { max-width: 1100px; margin: 0 auto; padding: 0 40px 100px; }
+  .cta-card { background: #00C853; border-radius: 24px; padding: 60px; display: flex; align-items: center; justify-content: space-between; }
+  .cta-card h2 { font-size: 40px; font-weight: 900; color: #000; letter-spacing: -1.5px; max-width: 400px; line-height: 1.1; }
+  .cta-card .btn-dark { background: #000; color: #fff; font-weight: 700; font-size: 14px; padding: 14px 32px; border-radius: 10px; text-decoration: none; white-space: nowrap; }
+
+  /* FOOTER */
+  footer { border-top: 1px solid #1a1a1a; padding: 40px; max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+  footer .logo { font-weight: 900; color: #fff; font-size: 16px; }
+  footer .logo span { color: #00C853; }
+  footer .links { display: flex; gap: 24px; }
+  footer .links a { color: #555; font-size: 13px; text-decoration: none; }
+  footer .copy { color: #333; font-size: 12px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">kiky<span>.</span></div>
+  <div class="nav-links">
+    <a href="#">About</a>
+    <a href="#">Experience</a>
+    <a href="#">Projects</a>
+    <a href="#">Services</a>
+  </div>
+  <a class="nav-cta" href="#">Hire Me →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">Available for Work</div>
+  <h1 class="hero-headline">
+    GRC Analyst<br>&amp; Security<br><span class="accent">Researcher.</span>
+  </h1>
+  <p class="hero-sub">Rizky Aditya — ISO 27001/27701 Lead Auditor & Web/Mobile Pentester at Whitesec.id. Based in Indonesia.</p>
+  <div class="hero-actions">
+    <a class="btn-primary" href="#">View Projects →</a>
+    <a class="btn-secondary" href="#">Get In Touch</a>
+  </div>
+
+  <!-- BENTO STATS -->
+  <div class="bento-stats">
+    <div class="stat-card green">
+      <div class="stat-num">2+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">Engagements</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">ISO</div>
+      <div class="stat-label">Lead Auditor</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">VAPT</div>
+      <div class="stat-label">Web &amp; Mobile</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <span class="marquee-item">GRC Analyst</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">ISO 27001 Lead Auditor</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">ISO 27701 Lead Auditor</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Web App Pentester</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Mobile Pentester</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Bug Bounty Hunter</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Security Researcher</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">GRC Analyst</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">ISO 27001 Lead Auditor</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Web App Pentester</span><span class="marquee-dot">✦</span>
+  </div>
+</div>
+
+<!-- BENTO SECTIONS -->
+<div class="bento">
+
+  <!-- Row 1: About (big) + Certs (small) -->
+  <div class="bento-grid">
+    <div class="bcard about-card">
+      <div class="section-label">About Me</div>
+      <h3>GRC Analyst &amp; Security Researcher at Whitesec.id.</h3>
+      <p>2+ years of experience in information security governance and vulnerability assessment. Specializing in ISO 27001 & ISO 27701 implementation, internal auditing, and web/mobile penetration testing.</p>
+    </div>
+    <div class="bcard surface">
+      <div class="section-label">Certifications</div>
+      <div style="margin-top:8px;">
+        <div class="cert-pill"><span class="dot"></span> ISO 27001 Lead Auditor</div>
+        <div class="cert-pill"><span class="dot"></span> ISO 27701 Lead Auditor</div>
+        <div class="cert-pill"><span class="dot"></span> Bug Bounty Masterclass</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 2: Services (2 cards) + Projects count -->
+  <div class="bento-grid-3">
+    <div class="bcard">
+      <div class="service-num">01</div>
+      <div class="section-label">VAPT</div>
+      <h3>Penetration Testing</h3>
+      <p>Web &amp; mobile application security testing with detailed findings report.</p>
+      <div style="margin-top:14px;">
+        <span class="tag">Web App</span>
+        <span class="tag">Mobile</span>
+        <span class="tag">API</span>
+      </div>
+    </div>
+    <div class="bcard green">
+      <div class="service-num">02</div>
+      <div class="section-label">GRC</div>
+      <h3 style="color:#000;">Security &amp; Compliance</h3>
+      <p>ISO 27001/27701 implementation, gap analysis, policy writing &amp; internal audit.</p>
+      <div style="margin-top:14px;">
+        <span class="tag">ISO 27001</span>
+        <span class="tag">ISO 27701</span>
+        <span class="tag">Audit</span>
+      </div>
+    </div>
+    <div class="bcard surface" style="display:flex;flex-direction:column;justify-content:space-between;">
+      <div>
+        <div class="section-label">Projects</div>
+        <div style="font-size:52px;font-weight:900;letter-spacing:-2px;color:#fff;line-height:1;margin:8px 0;">10+</div>
+        <div style="font-size:14px;color:#555;">Security engagements completed across various industries.</div>
+      </div>
+      <a href="#" style="display:inline-block;margin-top:20px;color:#00C853;font-size:13px;font-weight:600;text-decoration:none;">View All Projects →</a>
+    </div>
+  </div>
+
+  <!-- Row 3: Project cards -->
+  <div class="bento-grid-2">
+    <div class="bcard surface">
+      <div class="project-badge">VAPT · 2025</div>
+      <h3 style="font-size:18px;">Web Application Penetration Testing</h3>
+      <p>Client A (Confidential) — OWASP Top 10, API Security assessment with full findings report.</p>
+      <div style="margin-top:14px;">
+        <span class="tag">Web App</span>
+        <span class="tag">OWASP Top 10</span>
+        <span class="tag">API Security</span>
+      </div>
+    </div>
+    <div class="bcard surface">
+      <div class="project-badge">GRC · 2024</div>
+      <h3 style="font-size:18px;">ISO 27001 Gap Analysis &amp; Implementation</h3>
+      <p>Client C (Confidential) — Full ISMS gap analysis, policy writing, and implementation roadmap.</p>
+      <div style="margin-top:14px;">
+        <span class="tag">ISO 27001</span>
+        <span class="tag">Gap Analysis</span>
+        <span class="tag">ISMS</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-card">
+    <h2>Let's work together on your next security project.</h2>
+    <a class="btn-dark" href="#">Get In Touch →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">kiky<span>.</span></div>
+  <div class="links">
+    <a href="#">LinkedIn</a>
+    <a href="#">GitHub</a>
+    <a href="#">Instagram</a>
+  </div>
+  <div class="copy">© 2025 Rizky Aditya</div>
+</footer>
+
+</body>
+</html>

@@ -275,6 +275,39 @@ export const secEngCategories: SecEngCategory[] = [
   },
 ]
 
+export type WritingPost = {
+  slug: string
+  title: string
+  date: string
+  excerpt: string
+  tags: string[]
+  draft?: boolean
+}
+
+export const writings: WritingPost[] = [
+  {
+    slug: 'mengenal-dunia-cybersecurity',
+    title: 'Mengenal Dunia Cybersecurity: Dari Jaringan ke Security',
+    date: '2022-12-01',
+    excerpt: 'Perjalanan awal saya mengenal dunia keamanan siber — dari background jaringan di SMK hingga mulai memetakan karir di security.',
+    tags: ['career', 'cybersecurity', 'personal'],
+  },
+  {
+    slug: 'pengalaman-soc-monitoring',
+    title: 'Pengalaman Pertama di SOC: Monitoring, Alert, dan Incident',
+    date: '2023-08-01',
+    excerpt: 'Catatan dari pengalaman kerja di security operations — bagaimana proses monitoring log, triage alert, dan handling incident di environment enterprise.',
+    tags: ['soc', 'blue-team', 'wazuh', 'siem'],
+  },
+  {
+    slug: 'iso-27001-implementation-journey',
+    title: 'Implementasi ISO 27001: Dari Gap Analysis ke Sertifikasi',
+    date: '2024-06-01',
+    excerpt: 'Panduan praktis implementasi ISO/IEC 27001:2022 berdasarkan pengalaman langsung — mulai dari gap analysis, penyusunan dokumentasi ISMS, hingga audit sertifikasi.',
+    tags: ['grc', 'iso-27001', 'isms', 'compliance'],
+  },
+]
+
 export type VAPTClient = {
   name: string
   year: number

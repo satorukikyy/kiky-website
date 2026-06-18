@@ -1,0 +1,24 @@
+SOC adalah tempat di mana teori bertemu realita. Alert masuk setiap menit, log mengalir dari puluhan sistem, dan tugas seorang analis adalah memisahkan sinyal dari noise.
+
+## Apa yang Terjadi di SOC
+
+Workflow harian di SOC umumnya berjalan seperti ini:
+
+1. **Log ingestion** — semua endpoint mengirimkan log ke SIEM (dalam kasus kami, Wazuh + ELK Stack)
+2. **Alert triage** — memilah alert mana yang perlu investigasi lebih lanjut
+3. **Investigation** — menelusuri konteks di balik alert: siapa usernya, dari IP mana, apakah ada lateral movement
+4. **Escalation atau close** — escalate ke incident response jika terbukti threat, atau close jika false positive
+
+## Pelajaran dari Lapangan
+
+Yang tidak diajarkan di teori adalah betapa banyaknya **false positive**. Rule detection yang terlalu sensitif bisa membanjiri analis dengan alert yang tidak relevan, membuat yang benar-benar penting tertenggelam.
+
+Solusinya adalah **tuning** — menyesuaikan threshold dan kondisi rule berdasarkan baseline environment klien. Ini butuh waktu dan pemahaman mendalam tentang behaviour normal sistem mereka.
+
+> Satu rule yang tepat sasaran jauh lebih berharga dari seratus rule yang menghasilkan noise.
+
+## Tools yang Digunakan
+
+- **Wazuh** sebagai SIEM dan HIDS
+- **Elasticsearch + Kibana** untuk search dan visualisasi log
+- **Custom detection rules** berbasis MITRE ATT&CK framework
