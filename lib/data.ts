@@ -224,6 +224,7 @@ export const grcCategories: GRCCategory[] = [
       { name: 'PT Autopedia Sukses Lestari', year: 2025 },
       { name: 'PT JBA Indonesia', year: 2025 },
       { name: 'PT Manpro Teknologi Indonesia', year: 2025 },
+      { name: 'PT Starone Mitra Telekomunikasi (BDx Data Centers)', year: 2026 },
     ],
   },
   {
@@ -284,5 +285,6 @@ export const vaptClients: VAPTClient[] = [
   { name: 'PT Asuransi Jiwa Reliance Indonesia', year: 2026 },
   { name: 'PT Hutama Karya Infrastruktur', year: 2026 },
   { name: 'PT Inspiro', year: 2026 },
+  { name: 'PT Lestari Banten Energy', year: 2026 },
 ]
 
