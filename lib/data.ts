@@ -129,8 +129,9 @@ export const certifications: Certification[] = [
   { name: 'Bug Bounty Masterclass',       issuer: 'Wiz',                  category: 'security' },
   { name: 'OWASP Top 10 2025',            issuer: 'Snyk',                 category: 'security' },
   // Cloud & Technical
-  { name: 'Cloud Technical Essentials',   issuer: 'AWS',                  category: 'cloud' },
-  { name: 'Cybersecurity Professional',   issuer: 'Google',               category: 'cloud' },
+  { name: 'Cloud Technical Essentials',                    issuer: 'AWS',       category: 'cloud' },
+  { name: 'Cybersecurity Professional',                    issuer: 'Google',    category: 'cloud' },
+  { name: 'Security, Compliance and Identity Fundamentals', issuer: 'Microsoft', category: 'cloud' },
 ]
 
 export type Service = {
