@@ -34,6 +34,17 @@ const offensiveAreas = [
   'Attack Surface Analysis',
 ]
 
+const secEngAreas = [
+  'SIEM Deployment & Configuration (Wazuh / ELK)',
+  'Threat Detection Rule Development',
+  'Log Analysis & Alert Triage',
+  'Security Event Monitoring',
+  'Endpoint Telemetry Analysis',
+  'Incident Response Support',
+  'Linux Security Hardening',
+  'SOC Operations Support',
+]
+
 export default function AboutPage() {
   return (
     <div className="max-w-[720px] mx-auto px-6 pt-28 pb-24">
@@ -69,11 +80,12 @@ export default function AboutPage() {
 
       {/* Skills */}
       <section className="border-t border-c-border pt-16 mb-16">
-        <p className="font-mono text-[13px] text-c-subtle mb-6">// expertise</p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <p className="font-mono text-[13px] text-c-subtle mb-8">// expertise</p>
+        <div className="space-y-10">
+
           <div>
             <p className="font-mono text-[12px] text-c-purple mb-4">grc</p>
-            <ul className="space-y-2">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
               {grcAreas.map((item) => (
                 <li key={item} className="font-body text-[14px] text-c-muted leading-snug">
                   · {item}
@@ -81,9 +93,10 @@ export default function AboutPage() {
               ))}
             </ul>
           </div>
+
           <div>
             <p className="font-mono text-[12px] text-c-purple mb-4">vapt</p>
-            <ul className="space-y-2">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
               {offensiveAreas.map((item) => (
                 <li key={item} className="font-body text-[14px] text-c-muted leading-snug">
                   · {item}
@@ -91,6 +104,18 @@ export default function AboutPage() {
               ))}
             </ul>
           </div>
+
+          <div>
+            <p className="font-mono text-[12px] text-c-purple mb-4">sec-eng</p>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
+              {secEngAreas.map((item) => (
+                <li key={item} className="font-body text-[14px] text-c-muted leading-snug">
+                  · {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
         </div>
       </section>
 
