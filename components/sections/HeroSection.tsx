@@ -1,11 +1,12 @@
 import Link from 'next/link'
 import { personalInfo } from '@/lib/data'
+import ScrambleText from '@/components/ui/ScrambleText'
 
 export default function HeroSection() {
   return (
     <section className="pt-32 pb-16">
       <h1 className="font-body font-bold text-[42px] md:text-[56px] leading-[1.1] tracking-[-1.5px] text-c-text mb-4">
-        {personalInfo.name}
+        <ScrambleText text={personalInfo.name} delay={200} duration={1100} />
       </h1>
 
       <p className="font-body text-[16px] text-c-muted mb-1">

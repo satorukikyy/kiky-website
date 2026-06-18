@@ -1,6 +1,6 @@
 export const personalInfo = {
   name: 'Rizky Aditya',
-  nickname: 'Kiky',
+  nickname: 'Aditya',
   title: 'GRC Analyst & Security Researcher',
   company: 'Whitesec ID',
   email: 'rizky@nexorasec.asia',
