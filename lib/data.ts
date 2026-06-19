@@ -306,6 +306,13 @@ export const writings: WritingPost[] = [
     excerpt: 'The year I typed my first HTML tags, discovered cracked software from Bagas31, and somehow survived it all without a single malware infection.',
     tags: ['personal', 'story', 'coding'],
   },
+  {
+    slug: 'learning-beyond-school',
+    title: '2018 — Learning Beyond School',
+    date: '2018-09',
+    excerpt: 'Dota 2 taught me English, YouTube gave me my first 1,000 subscribers, and junior high gave me some of the best memories of my life — right before the world stopped in 2020.',
+    tags: ['personal', 'story', 'gaming'],
+  },
 ]
 
 export type VAPTClient = {
