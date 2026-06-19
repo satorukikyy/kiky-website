@@ -8,7 +8,8 @@ export const metadata: Metadata = {
 }
 
 function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' })
+  const [year, month] = dateStr.split('-').map(Number)
+  return new Date(year, month - 1).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' })
 }
 
 export default function WritingsPage() {

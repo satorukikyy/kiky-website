@@ -18,7 +18,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })
+  const [year, month] = dateStr.split('-').map(Number)
+  return new Date(year, month - 1).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })
 }
 
 export default async function WritingPost({ params }: Props) {
