@@ -288,7 +288,7 @@ export const writings: WritingPost[] = [
   {
     slug: 'the-computer-that-changed-everything',
     title: '2012 — The Computer That Changed Everything',
-    date: '2012-01-01',
+    date: '2012-02-01',
     excerpt: 'Everything started in 2012, when I was just seven years old and a single click on Counter-Strike 1.6 opened a door to a world I never expected.',
     tags: ['personal', 'story', 'beginnings'],
   },
