@@ -299,6 +299,13 @@ export const writings: WritingPost[] = [
     excerpt: 'A couple years later I\'d become the "computer kid" at school. My first desktop was gone, I had a new laptop, and somehow I was already teaching myself things without even realizing it.',
     tags: ['personal', 'story', 'childhood'],
   },
+  {
+    slug: 'hello-world',
+    title: '2016 — Hello, World.',
+    date: '2016-06-01',
+    excerpt: 'The year I typed my first HTML tags, discovered cracked software from Bagas31, and somehow survived it all without a single malware infection.',
+    tags: ['personal', 'story', 'coding'],
+  },
 ]
 
 export type VAPTClient = {
