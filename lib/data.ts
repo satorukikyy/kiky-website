@@ -292,6 +292,13 @@ export const writings: WritingPost[] = [
     excerpt: 'Everything started in 2012, when I was just seven years old and a single click on Counter-Strike 1.6 opened a door to a world I never expected.',
     tags: ['personal', 'story', 'beginnings'],
   },
+  {
+    slug: 'more-than-just-games',
+    title: '2014 — More Than Just Games',
+    date: '2014-06-01',
+    excerpt: 'A couple years later I\'d become the "computer kid" at school. My first desktop was gone, I had a new laptop, and somehow I was already teaching myself things without even realizing it.',
+    tags: ['personal', 'story', 'childhood'],
+  },
 ]
 
 export type VAPTClient = {
