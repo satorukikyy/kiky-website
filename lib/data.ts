@@ -37,11 +37,12 @@ export const experience: ExperienceEntry[] = [
     description:
       'Helping organizations strengthen cybersecurity posture through governance, risk management, compliance initiatives, and technical security assessments. Building audit-ready security programs while validating controls through practical testing.',
     highlights: [
-      'Delivered 24+ security engagements across GRC and VAPT disciplines',
-      'Lead Auditor certified in ISO/IEC 27001:2022, ISO/IEC 27701, and ISO/IEC 42001',
-      'Conducted web application and mobile penetration testing across technology, finance, and healthcare sectors',
-      'Developed ISMS documentation — risk registers, SoA, security policies — mapped to annex A and UU PDP',
-      'Supported clients through ISO 27001 initial certification and surveillance audit cycles',
+      'Delivered 24+ security engagements across GRC and VAPT disciplines spanning technology, fintech, healthcare, and critical infrastructure sectors',
+      'Lead Auditor certified in ISO/IEC 27001:2022, ISO/IEC 27701, and ISO/IEC 42001 — leading gap analysis, risk assessment, annex A control mapping, SoA development, and evidence preparation through initial certification and surveillance audit cycles',
+      'Conducted web application, mobile, and API penetration testing following OWASP Testing Guide and PTES methodology — delivering CVSS-rated technical reports with reproduction steps and remediation guidance',
+      'Developed ISMS documentation suite — risk registers, risk treatment plans, SoA, security policies, procedures, and DPIAs — aligned to ISO/IEC 27001:2022 annex A controls and UU PDP compliance requirements',
+      'Built GRC One Dashboard, an internal compliance management application consolidating control tracking across ISO/IEC 27001, ISO/IEC 27701, SOC Type 2, Essential Eight, and UU PDP frameworks into a single unified view',
+      'Supported clients through full ISO 27001 lifecycle — from initial scoping and gap analysis, through risk treatment and control implementation, to certification audit readiness and post-certification surveillance',
     ],
     tags: ['ISO/IEC 27001:2022', 'ISO/IEC 27701', 'GRC', 'VAPT', 'Risk Assessment', 'Internal Audit', 'OWASP', 'UU PDP'],
   },
