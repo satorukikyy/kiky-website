@@ -53,14 +53,16 @@ export const experience: ExperienceEntry[] = [
     startYear: 2023,
     endYear: 2024,
     description:
-      'Worked on security monitoring and security operations initiatives, supporting the deployment and optimization of enterprise SIEM environments for client organizations.',
+      'Delivered security operations support across enterprise client environments — deploying and tuning SIEM infrastructure, developing detection capabilities, and monitoring for threats across highly regulated industries including banking, healthcare, government, and critical infrastructure.',
     highlights: [
-      'Deployed and tuned Wazuh SIEM with ELK Stack for enterprise client environments',
-      'Authored custom threat detection rules across Linux and Windows endpoint telemetry',
-      'Performed log analysis and alert triage to support client SOC teams',
-      'Contributed to internal tooling for incident response and event correlation workflows',
+      'Deployed and configured Wazuh SIEM integrated with Elastic Stack (ELK) for multiple enterprise client environments, establishing centralized log ingestion pipelines, index management, and real-time event correlation workflows',
+      'Developed custom threat detection rules and correlation alerts covering Linux and Windows endpoint telemetry — tuned to client-specific environments to reduce false positive rates and improve actionable signal quality',
+      'Operated SOC monitoring functions for 7+ organizations across banking, healthcare, government, and critical infrastructure sectors — including PT Bank Hibank Indonesia, PT Bank Saqu Indonesia, PT Kalbe Farma, PT Prodia Widyahusada, PT Jakarta International Container Terminal, KPK, and PT Asuransi Jiwa Sequis Life',
+      'Performed continuous log analysis and security alert triage, classifying events by severity, correlating indicators across data sources, and escalating confirmed threats with documented findings and containment recommendations',
+      'Coordinated incident management and response activities for PT Bank Resona Perdania — conducting root cause analysis, reconstructing attack timelines, and producing post-incident reports aligned to client SLA requirements',
+      'Contributed to internal tooling development for incident tracking and event correlation workflows, improving SOC team operational efficiency and response consistency across concurrent client engagements',
     ],
-    tags: ['Wazuh', 'ELK Stack', 'SIEM', 'Security Monitoring', 'Linux', 'Threat Detection'],
+    tags: ['Wazuh', 'ELK Stack', 'SIEM', 'SOC', 'Threat Detection', 'Incident Response', 'Log Analysis', 'Linux'],
   },
   {
     role: 'IT Support Intern',
@@ -69,13 +71,13 @@ export const experience: ExperienceEntry[] = [
     startYear: 2022,
     endYear: 2022,
     description:
-      'Supported endpoint management and infrastructure operations within the university laboratory environment.',
+      'Provided IT operations support for the computer laboratory facilities at FMIPA Universitas Indonesia — managing endpoint infrastructure, network deployment, and asset administration in a high-usage academic environment.',
     highlights: [
-      'Managed Windows and Microsoft 365 lifecycle across laboratory workstations',
-      'Assisted in network deployment, cabling, and switch configuration',
-      'Maintained IT asset inventory and operational documentation',
+      'Administered Windows endpoint lifecycle and Microsoft 365 user accounts across laboratory workstations, handling provisioning, configuration, software deployment, and decommissioning',
+      'Assisted in structured cabling installation and network infrastructure deployment, including switch configuration, port assignment, and connectivity verification across laboratory segments',
+      'Maintained IT asset inventory and technical documentation — tracking hardware status, software licensing, and operational procedures to support laboratory continuity and audit readiness',
     ],
-    tags: ['Windows', 'Microsoft 365', 'Network Deployment', 'IT Support'],
+    tags: ['Windows', 'Microsoft 365', 'Network Infrastructure', 'IT Support', 'Asset Management'],
   },
 ]
 
