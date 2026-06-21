@@ -271,6 +271,7 @@ export const secEngCategories: SecEngCategory[] = [
       { name: 'PT Jakarta International Container Terminal', year: 2023 },
       { name: 'KPK (Komisi Pemberantasan Korupsi)', year: 2023 },
       { name: 'PT Asuransi Jiwa Sequis Life', year: 2023 },
+      { name: 'PT HM Sampoerna Tbk', year: 2023 },
     ],
   },
   {
