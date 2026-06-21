@@ -18,7 +18,7 @@ export default function HomePage() {
       <FadeIn>
         <section className="border-t border-c-border pt-16 mt-0 pb-16">
           <p className="font-mono text-[13px] text-c-subtle mb-6">// about</p>
-          <div className="flex gap-10 mb-8">
+          <div className="flex flex-wrap gap-x-8 gap-y-4 mb-8">
             <div>
               <p className="font-body font-bold text-[30px] text-c-text leading-none tracking-tight">
                 <CountUp target={24} suffix="+" />
