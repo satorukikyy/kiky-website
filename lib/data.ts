@@ -241,6 +241,14 @@ export const grcCategories: GRCCategory[] = [
       { name: 'PT Solusi Dwi Satya', year: 2026 },
     ],
   },
+  {
+    id: 'security-awareness',
+    label: 'Security Awareness Program',
+    shortLabel: 'Security Awareness',
+    clients: [
+      { name: 'PT Kilang Pertama Internasional', year: 2024 },
+    ],
+  },
 ]
 
 export type SecEngCategory = {
