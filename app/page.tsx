@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { personalInfo, services, vaptClients, grcCategories, secEngCategories } from '@/lib/data'
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/ui/FadeIn'
 import CountUp from '@/components/ui/CountUp'
+import ParticleNetwork from '@/components/ui/ParticleNetwork'
 
 const allGRCClients = grcCategories.flatMap(c => c.clients)
 const allSecEngClients = secEngCategories.flatMap(c => c.clients)
@@ -10,6 +11,7 @@ const allSecEngClients = secEngCategories.flatMap(c => c.clients)
 export default function HomePage() {
   return (
     <div className="max-w-[720px] mx-auto px-6">
+      <ParticleNetwork />
       <HeroSection />
 
       {/* About */}
