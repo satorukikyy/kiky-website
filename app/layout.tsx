@@ -4,6 +4,7 @@ import Script from 'next/script'
 import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import CursorGlow from '@/components/ui/CursorGlow'
 import { personalInfo } from '@/lib/data'
 
 const jetbrainsMono = JetBrains_Mono({
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="google-site-verification" content="1fdaEy6NrpYoRX6trGc1HBc96cNqE3XYvenerhSibpI" />
       </head>
       <body>
+        <CursorGlow />
         <Navbar />
         <main>{children}</main>
         <Footer />

@@ -11,14 +11,14 @@ export default function HeroSection() {
 
       <p className="font-body text-[16px] text-c-muted mb-1">
         {personalInfo.title}
+        <span className="scramble-cursor ml-0.5">|</span>
       </p>
       <p className="font-mono text-[13px] text-c-subtle mb-8">
         Whitesec ID · South Jakarta, Indonesia
       </p>
 
       <p className="font-body text-[15px] text-c-muted leading-[1.75] max-w-[560px] mb-8">
-        Helping organizations build security programs that are rigorous on paper
-        and resilient when put to the test.
+        i build security programs that hold up — on paper and when someone&apos;s actually trying.
       </p>
 
       <div className="flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[13px]">
